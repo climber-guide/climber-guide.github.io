@@ -2,8 +2,16 @@
     --std_txt_color: #2e2a2c;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     background-color: #f5f3ef;
+}
+
+#map {
+    height: 100%;
 }
 
 .row:first-child {
