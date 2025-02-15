@@ -1,0 +1,69 @@
+@import url(/css/normalize.css);
+
+@font-face {
+    font-family: Raleway;
+    src: url(/css/Raleway.ttf);
+}
+
+:root {
+    --base-color: #f3f1ec;
+    --base-color-alt: #ece8df;
+    --std-text-color: #2e2a2c;
+    --std-text-color-hover: #0FA0CE;
+}
+
+a {
+    color: var(--std-text-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--std-text-color-hover);
+}
+
+body {
+    background-color: var(--base-color);
+    color: var(--std-text-color);
+    font-family: Raleway, "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1.5em;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 300;
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+.title.home {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.navbar.home {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .2rem;
+    line-height: 3rem;
+    text-align: center;
+    width: 100%;
+}
+
+.navbar.book {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .2rem;
+    line-height: 3rem;
+    margin: 0 auto;
+    position: relative;
+    text-align: left;
+}
+
+.navbar.book > a > div {
+    padding-left: 4%;
+}
+
+.navbar.book > a:nth-of-type(even) > div {
+    background: var(--base-color-alt);
+}
