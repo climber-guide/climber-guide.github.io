@@ -1,0 +1,14 @@
+{
+    "name": "Inland Empire",
+    "desc": [
+        "Lorem ipsum odor amet, consectetuer adipiscing elit. Condimentum tincidunt fermentum himenaeos primis etiam. Eget facilisis nec finibus hac sociosqu. Rhoncus aenean nisi ut montes elit ultrices tortor efficitur. Augue viverra dapibus proin quam non litora eu. Duis fringilla est scelerisque convallis dolor eleifend. Sem pellentesque pellentesque ullamcorper massa ridiculus. Gravida blandit cras phasellus facilisi penatibus quis habitant commodo amet.",
+        "",
+        "Nullam elementum nunc congue felis vitae pellentesque. Elementum in porta, eget lectus lectus ridiculus amet himenaeos. Senectus tempus lacus aenean aptent placerat torquent litora ut. Asagittis scelerisque, fermentum aliquet volutpat inceptos senectus. Varius semper orci rutrum taciti inceptos. Dictum nec adipiscing nunc, penatibus non commodo. Nisi dictum praesent tortor rutrum facilisis sollicitudin sollicitudin. Amet habitant nascetur porta natoque litora sed consequat ullamcorper per."
+    ],
+    "areas": [
+        {
+            "name": "Mount Rubidoux",
+            "child": "mount_rubidoux"
+        }
+    ]
+}

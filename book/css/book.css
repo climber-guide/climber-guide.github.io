@@ -1,0 +1,78 @@
+@import url(/book/css/normalize.css);
+
+@font-face {
+    font-family: Raleway;
+    src: url(/book/css/Raleway.ttf);
+}
+
+:root {
+    --base-color: #f5f3ef;
+    --base-color-alt: #ece8df;
+    --std-text-color: #2e2a2c;
+    --std-text-color-hover: #0FA0CE;
+}
+
+body {
+    background-color: var(--base-color);
+    color: var(--std-text-color);
+    font-family: Raleway, "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+}
+
+a {
+    color: var(--std-text-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--std-text-color-hover);
+}
+
+#info.mini {
+    padding: 0px 20px 0px 20px;
+    border-bottom: 1px solid var(--std-text-color);
+    position: sticky;
+    top: 0px;
+    background-color: var(--base-color);
+}
+
+#list > ul {
+    line-height: 2.5rem;
+    padding: 0px 20px;
+    margin: 0;
+}
+
+#list > ul:nth-of-type(even) {
+    background-color: var(--base-color-alt);
+}
+
+#list > .inactive {
+    color: #a3a2a0;
+}
+
+#list > .inactive:hover {
+    color: #ce0f3f;
+}
+
+#switch {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: #0FA0CE;
+}
+
+.switch-btn {
+    position: absolute;
+    bottom: -1rem;
+    right: -1rem;
+    width: 3rem;
+    height: 3rem;
+    background: blue;
+    border-radius: 50%;
+    background: #126ee2;
+    /* box-shadow: 0px 5px 20px #81a4f1; */
+    transition: all 0.3s ease;
+    z-index: 1;
+    border-bottom-right-radius: 6px;
+    border: 1px solid #0c50a7;
+}
