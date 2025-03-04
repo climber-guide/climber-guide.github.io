@@ -1,0 +1,142 @@
+/* cg.css v0.1.0
+ * copyright 2025, grant freeman
+ * license gpl-3.0
+=============================================================================*/
+
+@import url(normalize.css);
+
+/* grid
+============================================================================ */
+
+.container {
+    position: relative;
+    width: 92%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* tablets and desktop */
+@media (min-width: 550px) {
+    .container {
+        width: 84%;
+    }
+}
+
+/* clearing
+============================================================================ */
+
+.container:after,
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* utility
+============================================================================ */
+
+.center {
+    text-align: center;
+}
+
+/* color
+============================================================================ */
+
+:scope {
+    --bg-color: hsl(42deg 24% 92%);
+    --gray-soft: hsl(0deg 0% 80%);
+    --text-color: hsl(0deg 0% 16%);
+    --text-color-hover: hsl(175deg, 100%, 32%);
+}
+
+body { 
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+a       { color: var(--text-color); }
+a:hover { color: var(--text-color-hover); }
+
+.red    { color: hsl(350, 88%, 46%); }
+.blue   { color: hsl(216, 88%, 46%); }
+
+/* typography
+============================================================================ */
+
+@font-face {
+    font-family: Raleway;
+    src: url(Raleway.ttf);
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url(Roboto.ttf);
+}
+
+/* 1rem = 10px */
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: Roboto;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Raleway;
+    font-weight: 300;
+    line-height: 1;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+h1 { font-size: 3.0rem; letter-spacing: -.100rem; }
+h2 { font-size: 2.7rem; letter-spacing: -.100rem; }
+h3 { font-size: 2.4rem; letter-spacing: -.100rem; }
+h4 { font-size: 2.1rem; letter-spacing: -.075rem; }
+h5 { font-size: 1.8rem; letter-spacing: -.050rem; }
+h6 { font-size: 1.5rem; letter-spacing: -.025rem; }
+
+/* tablet and desktop */
+@media (min-width: 550px) {
+    h1 { font-size: 4.0rem; }
+    h2 { font-size: 3.5rem; }
+    h3 { font-size: 3.0rem; }
+    h4 { font-size: 2.5rem; }
+    h5 { font-size: 2.0rem; }
+    h6 { font-size: 1.5rem; }
+}
+
+p { margin-top: 0; }
+
+a {
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* miscellaneous
+============================================================================ */
+
+canvas {
+    margin-bottom: 1.5rem;
+}
+
+img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+.chart-container {
+    position: relative;
+}
+
+.navbar {
+    border-top: 1px solid var(--gray-soft);
+    border-bottom: 1px solid var(--gray-soft);
+    padding: 1rem;
+}

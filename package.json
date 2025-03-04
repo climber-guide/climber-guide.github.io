@@ -4,7 +4,7 @@
   "description": "climber's guide",
   "main": "index.js",
   "scripts": {
-    "test": "http-server . -c30"
+    "test": "http-server site -c-1"
   },
   "repository": {
     "type": "git",
