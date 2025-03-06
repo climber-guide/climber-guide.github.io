@@ -1,0 +1,28 @@
+@import url(/css/cg.css);
+@import url(/css/dual-range-input.css);
+
+
+.chart-container {
+    position: relative;
+}
+
+/* range slider
+============================================================================ */
+
+.dual-range-input {
+    --dri-thumb-width: 2rem;
+    --dri-thumb-height: 2rem;
+    --dri-thumb-color: #41444B;
+    --dri-thumb-border-color: #41444B;
+    --dri-thumb-border-radius: 1rem;
+    --dri-thumb-border-width: 1px;
+
+    --dri-track-color: #C7C8CC;
+    --dri-track-filled-color: #C96868;
+    
+    margin-top: .5rem;
+}
+
+.dual-range-input input {
+    border: none;
+}

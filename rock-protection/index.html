@@ -4,39 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Climber's Guide</title>
-  <link rel="stylesheet" href="/css/cg.css">
-  <script src="/js/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+  <link rel="stylesheet" href="pro.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 </head>
 <body class="container">
   <div class="row center">
     <h1>Rock Protection</h1>
+    <!-- <img src="friend-patent.jpg" style="width:80%;"> -->
   </div>
   <section class="row">
-    <h3 class="center">Pro Chart</h3>
+    <!-- <h3 class="center">Comparison Chart</h3> -->
+    <div class="center" style="margin-bottom: 0.5rem;">
+      <p style="margin-bottom: 0.5rem;">Range</p>
+      <span id="dri-min-value"></span>
+      <span>-</span>
+      <span id="dri-max-value"></span>
+      <div class="dual-range-input">
+        <input type="range" min="5" max="325" step="5" value="5" id="min" />
+        <input type="range" min="5" max="325" step="5" value="75" id="max" />
+      </div>
+    </div>
     <div class="chart-container">
       <canvas id="all-pro-dynamic"></canvas>
     </div>
+  </section>
+  <!-- <section class="row">
     <h4 class="center">SLCD - Friend - Cam</h4>
     <div class="center">
-      <img src="friend.jpg" style="width:80%;">
-    </div>
-    <h6 class="center">Micro Cams</h6>
-    <div class="chart-container">
-      <canvas id="micro-cams"></canvas>
-    </div>
-    <h6 class="center">Small Cams</h6>
-    <div class="chart-container">
-      <canvas id="small-cams"></canvas>
-    </div>
-    <h6 class="center">Medium Cams</h6>
-    <div class="chart-container">
-      <canvas id="med-cams"></canvas>
-    </div>
-    <h6 class="center">large Cams</h6>
-    <div class="chart-container">
-      <canvas id="large-cams"></canvas>
     </div>
   </section>
   <section class="row">
@@ -69,7 +65,7 @@
     <p>
       Single-axle cams can/will fail on the extreme end of undercamming. They do not have a passive strength rating. Double-axle cams however, if placed correctly, can be loaded from underneath the lobes.
     </p>
-  </section>
+  </section> -->
   <script src="pro.js"></script>
 </body>
 </html>
