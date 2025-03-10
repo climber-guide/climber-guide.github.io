@@ -28,6 +28,7 @@
     background-color: hsl(42deg 24% 95%);
     border: 2px solid var(--BLACK);
     border-radius: 4px;
+    color: black;
     margin-top: 0.5rem;
     padding: 4px;
 }

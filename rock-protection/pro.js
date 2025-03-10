@@ -1,5 +1,5 @@
 /**
- * pro.js v0.1.0
+ * pro.js v0.1.1
  * (c) 2025 climber's guide contributers
  * released under the gpl-3.0 license
  */
@@ -673,22 +673,6 @@ prolib.add(new Pro({type: Pro.CAM, brand: 'DMM Wales', brandShort: 'DMM', model:
 prolib.add(new Pro({type: Pro.CAM, brand: 'DMM Wales', brandShort: 'DMM', model: 'Dragon', modelShort: 'DRGN', color: Pro.SILVER, size:  '6',   weight: 299, range: {min:  68, max: 114}, strength: {active: 14, passive: 14}, stem: Pro.RIGID}))
 prolib.add(new Pro({type: Pro.CAM, brand: 'DMM Wales', brandShort: 'DMM', model: 'Dragon', modelShort: 'DRGN', color: Pro.PURPLE, size:  '7',   weight: 362, range: {min:  88, max: 149}, strength: {active: 14, passive: 14}, stem: Pro.RIGID}))
 prolib.add(new Pro({type: Pro.CAM, brand: 'DMM Wales', brandShort: 'DMM', model: 'Dragon', modelShort: 'DRGN', color: Pro.GREEN,  size:  '8',   weight: 515, range: {min: 116, max: 195}, strength: {active: 14, passive: 14}, stem: Pro.RIGID}))
-
-// fixe - alien
-prolib.add(new Pro({type: Pro.SLCD, brand: 'FIXE', model: 'Alien', modelShort: 'Alien', color: Pro.BLACK,  size: '1/3', weight: 66, range: {min:  8.4, max: 13.7}, strength: {active:  5, passive: null}, stem: Pro.FLEX}))
-prolib.add(new Pro({type: Pro.SLCD, brand: 'FIXE', model: 'Alien', modelShort: 'Alien', color: Pro.BLUE,   size: '3/8', weight: 71, range: {min: 10.2, max: 17.0}, strength: {active:  6, passive: null}, stem: Pro.FLEX}))
-prolib.add(new Pro({type: Pro.SLCD, brand: 'FIXE', model: 'Alien', modelShort: 'Alien', color: Pro.GREEN,  size: '1/2', weight: 74, range: {min: 13.5, max: 21.8}, strength: {active:  7, passive: null}, stem: Pro.FLEX}))
-prolib.add(new Pro({type: Pro.SLCD, brand: 'FIXE', model: 'Alien', modelShort: 'Alien', color: Pro.YELLOW, size: '3/4', weight: 74, range: {min: 16.0, max: 26.7}, strength: {active: 10, passive:    5}, stem: Pro.FLEX}))
-prolib.add(new Pro({type: Pro.SLCD, brand: 'FIXE', model: 'Alien', modelShort: 'Alien', color: Pro.SILVER, size: '7/8', weight: 88, range: {min: 18.8, max: 29.7}, strength: {active: 10, passive:    5}, stem: Pro.FLEX}))
-prolib.add(new Pro({type: Pro.SLCD, brand: 'FIXE', model: 'Alien', modelShort: 'Alien', color: Pro.RED,    size: '1',   weight: 92, range: {min: 19.8, max: 33.8}, strength: {active: 10, passive:    5}, stem: Pro.FLEX}))
-
-// fixe - alien revolution
-prolib.add(new Pro({type: Pro.SLCD, brand: 'FIXE', model: 'Alien Revolution', modelShort: 'Revo', color: Pro.BLACK,  size: '1/3', weight: 46, range: {min:  8.0, max: 14.0}, strength: {active:  5, passive: null}, stem: Pro.FLEX}))
-prolib.add(new Pro({type: Pro.SLCD, brand: 'FIXE', model: 'Alien Revolution', modelShort: 'Revo', color: Pro.BLUE,   size: '3/8', weight: 48, range: {min: 10.0, max: 17.0}, strength: {active:  6, passive: null}, stem: Pro.FLEX}))
-prolib.add(new Pro({type: Pro.SLCD, brand: 'FIXE', model: 'Alien Revolution', modelShort: 'Revo', color: Pro.GREEN,  size: '1/2', weight: 52, range: {min: 13.0, max: 22.0}, strength: {active:  7, passive: null}, stem: Pro.FLEX}))
-prolib.add(new Pro({type: Pro.SLCD, brand: 'FIXE', model: 'Alien Revolution', modelShort: 'Revo', color: Pro.YELLOW, size: '3/4', weight: 58, range: {min: 15.0, max: 25.0}, strength: {active: 10, passive: null}, stem: Pro.FLEX}))
-prolib.add(new Pro({type: Pro.SLCD, brand: 'FIXE', model: 'Alien Revolution', modelShort: 'Revo', color: Pro.SILVER, size: '7/8', weight: 59, range: {min: 17.0, max: 30.0}, strength: {active: 10, passive: null}, stem: Pro.FLEX}))
-prolib.add(new Pro({type: Pro.SLCD, brand: 'FIXE', model: 'Alien Revolution', modelShort: 'Revo', color: Pro.RED,    size: '1',   weight: 61, range: {min: 20.0, max: 33.0}, strength: {active: 10, passive: null}, stem: Pro.FLEX}))
 
 // fixe - alien x
 prolib.add(new Pro({type: Pro.SLCD, brand: 'FIXE', model: 'Alien X', modelShort: 'X', color: Pro.BLACK,  size: '1/3', weight: 55, range: {min:  9.3, max: 14.0}, strength: {active:  5, passive: null}, stem: Pro.FLEX}))
