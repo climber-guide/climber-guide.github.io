@@ -239,6 +239,14 @@ class ProLib {
       range: {
         min: 0,
         max: 0
+      },
+      brand: {
+        include: new Set(),
+        exclude: new Set()
+      },
+      model: {
+        include: new Set(),
+        exclude: new Set()
       }
     }
     this.chart = {
@@ -366,6 +374,38 @@ class ProLib {
   
   applyFilter() {
     this.list = this.list.filter((pro) => {
+      const b2mMap = new Map([
+        ['Black Diamond', new Set(['Camalot C4', 'Camalot Ultralight', 'Camalot Z4'])],
+        ['DMM Wales', new Set(['Dragonfly', 'Dragon'])],
+        ['FIXE', new Set(['Alien', 'Alien Revolution', 'Alien X'])],
+        ['Metolius', new Set(['Master Cam', 'TCU Ultralight', 'Power Cam', 'Supercam', 'Fat Cam'])],
+        ['Totem', new Set([])],
+        ['Trango', new Set(['Flex'])],
+        ['Wild Country', new Set(['Friend', 'Friend Zero'])]
+      ])
+      const brand = this.filter.brand
+      const model = this.filter.model
+      
+      // exclude
+      if(brand.exclude.has(pro.brand) || model.exclude.has(pro.model)) return false
+      // include
+      if (brand.include.size != 0 || model.include.size != 0) {
+        if (brand.include.has(pro.brand) == false && model.include.has(pro.model) == false) {
+          return false
+        }
+        if (brand.include.has(pro.brand) && model.include.has(pro.model) == false) {
+          let remove = false
+          b2mMap.get(pro.brand).forEach((m) => {
+            if (model.include.has(m)) {
+              remove = true
+            }
+          })
+          if (remove) return false
+        }
+      }
+      // if (brand.include.size != 0 && brand.include.has(pro.brand) == false) return false
+      // if (model.include.size != 0 && model.include.has(pro.model) == false) return false
+      // range
       if (pro.range.expansion.min < this.filter.range.min) return false
       if (pro.range.expansion.max > this.filter.range.max) return false
       return true
@@ -567,28 +607,43 @@ class ProLib {
 ================================================================================================ */
 const prolib = new ProLib()
 
+// black diamond - camalot c3
+prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot C3', modelShort: 'C3', color: Pro.SILVER, size: '000', weight: 56, range: {min:  7.8, max: 12.9}, strength: {active:  4, passive: null}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot C3', modelShort: 'C3', color: Pro.PURPLE, size: '00',  weight: 58, range: {min:  8.9, max: 13.7}, strength: {active:  6, passive: null}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot C3', modelShort: 'C3', color: Pro.GREEN,  size: '0',   weight: 59, range: {min: 10.2, max: 15.8}, strength: {active:  7, passive: null}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot C3', modelShort: 'C3', color: Pro.RED,    size: '1',   weight: 64, range: {min: 12.0, max: 18.8}, strength: {active: 10, passive: null}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot C3', modelShort: 'C3', color: Pro.YELLOW, size: '2',   weight: 66, range: {min: 14.2, max: 22.6}, strength: {active: 10, passive: null}, stem: Pro.RIGID}))
+
 // black diamond - camalot c4
-prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot C4', model: 'C4', color: Pro.BLUE,   size: '0.3',   weight:  70, range: {min:  13.8, max:  23.4}, strength: {active:  8, passive:  8}, stem: Pro.RIGID}))
-prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot C4', model: 'C4', color: Pro.SILVER, size: '0.4',   weight:  78, range: {min:  15.5, max:  26.7}, strength: {active:  9, passive:  9}, stem: Pro.RIGID}))
-prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot C4', model: 'C4', color: Pro.PURPLE, size: '0.5',   weight:  93, range: {min:  19.6, max:  33.5}, strength: {active: 12, passive: 12}, stem: Pro.RIGID}))
-prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot C4', model: 'C4', color: Pro.GREEN,  size: '0.75',  weight: 108, range: {min:  23.9, max:  41.2}, strength: {active: 12, passive: 12}, stem: Pro.RIGID}))
-prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot C4', model: 'C4', color: Pro.RED,    size: '#1',    weight: 124, range: {min:  30.2, max:  52.1}, strength: {active: 12, passive: 12}, stem: Pro.RIGID}))
-prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot C4', model: 'C4', color: Pro.YELLOW, size: '#2',    weight: 140, range: {min:  37.2, max:  64.9}, strength: {active: 12, passive: 12}, stem: Pro.RIGID}))
-prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot C4', model: 'C4', color: Pro.BLUE,   size: '#3',    weight: 180, range: {min:  50.7, max:  87.9}, strength: {active: 12, passive: 12}, stem: Pro.RIGID}))
-prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot C4', model: 'C4', color: Pro.SILVER, size: '#4',    weight: 257, range: {min:  66.0, max: 114.7}, strength: {active: 14, passive: 14}, stem: Pro.RIGID}))
-prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot C4', model: 'C4', color: Pro.PURPLE, size: '#5',    weight: 348, range: {min:  85.4, max: 148.5}, strength: {active: 14, passive: 12}, stem: Pro.RIGID}))
-prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot C4', model: 'C4', color: Pro.GREEN,  size: '#6',    weight: 530, range: {min: 114.1, max: 195.0}, strength: {active: 14, passive: 12}, stem: Pro.RIGID}))
-prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot C4', model: 'C4', color: Pro.RED,    size: '#7',    weight: 710, range: {min: 150.0, max: 253.3}, strength: {active:  8, passive:  8}, stem: Pro.RIGID}))
-prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot C4', model: 'C4', color: Pro.YELLOW, size: '#8',    weight: 974, range: {min: 193.0, max: 321.2}, strength: {active:  5, passive:  5}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot C4', modelShort: 'C4', color: Pro.BLUE,   size: '0.3',   weight:  70, range: {min:  13.8, max:  23.4}, strength: {active:  8, passive:  8}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot C4', modelShort: 'C4', color: Pro.SILVER, size: '0.4',   weight:  78, range: {min:  15.5, max:  26.7}, strength: {active:  9, passive:  9}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot C4', modelShort: 'C4', color: Pro.PURPLE, size: '0.5',   weight:  93, range: {min:  19.6, max:  33.5}, strength: {active: 12, passive: 12}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot C4', modelShort: 'C4', color: Pro.GREEN,  size: '0.75',  weight: 108, range: {min:  23.9, max:  41.2}, strength: {active: 12, passive: 12}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot C4', modelShort: 'C4', color: Pro.RED,    size: '#1',    weight: 124, range: {min:  30.2, max:  52.1}, strength: {active: 12, passive: 12}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot C4', modelShort: 'C4', color: Pro.YELLOW, size: '#2',    weight: 140, range: {min:  37.2, max:  64.9}, strength: {active: 12, passive: 12}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot C4', modelShort: 'C4', color: Pro.BLUE,   size: '#3',    weight: 180, range: {min:  50.7, max:  87.9}, strength: {active: 12, passive: 12}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot C4', modelShort: 'C4', color: Pro.SILVER, size: '#4',    weight: 257, range: {min:  66.0, max: 114.7}, strength: {active: 14, passive: 14}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot C4', modelShort: 'C4', color: Pro.PURPLE, size: '#5',    weight: 348, range: {min:  85.4, max: 148.5}, strength: {active: 14, passive: 12}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot C4', modelShort: 'C4', color: Pro.GREEN,  size: '#6',    weight: 530, range: {min: 114.1, max: 195.0}, strength: {active: 14, passive: 12}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot C4', modelShort: 'C4', color: Pro.RED,    size: '#7',    weight: 710, range: {min: 150.0, max: 253.3}, strength: {active:  8, passive:  8}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot C4', modelShort: 'C4', color: Pro.YELLOW, size: '#8',    weight: 974, range: {min: 193.0, max: 321.2}, strength: {active:  5, passive:  5}, stem: Pro.RIGID}))
 
 // black diamond - camalot ul
-prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot UL', model: 'UL', color: Pro.SILVER, size: '0.4',   weight:  61, range: {min:  15.5, max:  26.7}, strength: {active:  8, passive:  8}, stem: Pro.RIGID}))
-prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot UL', model: 'UL', color: Pro.PURPLE, size: '0.5',   weight:  74, range: {min:  19.6, max:  33.5}, strength: {active: 10, passive: 10}, stem: Pro.RIGID}))
-prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot UL', model: 'UL', color: Pro.GREEN,  size: '0.75',  weight:  89, range: {min:  23.9, max:  41.2}, strength: {active: 12, passive: 12}, stem: Pro.RIGID}))
-prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot UL', model: 'UL', color: Pro.RED,    size: '#1',    weight: 101, range: {min:  30.2, max:  52.1}, strength: {active: 12, passive: 12}, stem: Pro.RIGID}))
-prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot UL', model: 'UL', color: Pro.YELLOW, size: '#2',    weight: 126, range: {min:  37.2, max:  64.9}, strength: {active: 12, passive: 12}, stem: Pro.RIGID}))
-prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot UL', model: 'UL', color: Pro.BLUE,   size: '#3',    weight: 167, range: {min:  50.7, max:  87.9}, strength: {active: 12, passive: 12}, stem: Pro.RIGID}))
-prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot UL', model: 'UL', color: Pro.SILVER, size: '#4',    weight: 225, range: {min:  66.0, max: 114.7}, strength: {active: 12, passive: 12}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot Ultralight', modelShort: 'UL', color: Pro.SILVER, size: '0.4',   weight:  61, range: {min:  15.5, max:  26.7}, strength: {active:  8, passive:  8}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot Ultralight', modelShort: 'UL', color: Pro.PURPLE, size: '0.5',   weight:  74, range: {min:  19.6, max:  33.5}, strength: {active: 10, passive: 10}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot Ultralight', modelShort: 'UL', color: Pro.GREEN,  size: '0.75',  weight:  89, range: {min:  23.9, max:  41.2}, strength: {active: 12, passive: 12}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot Ultralight', modelShort: 'UL', color: Pro.RED,    size: '#1',    weight: 101, range: {min:  30.2, max:  52.1}, strength: {active: 12, passive: 12}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot Ultralight', modelShort: 'UL', color: Pro.YELLOW, size: '#2',    weight: 126, range: {min:  37.2, max:  64.9}, strength: {active: 12, passive: 12}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot Ultralight', modelShort: 'UL', color: Pro.BLUE,   size: '#3',    weight: 167, range: {min:  50.7, max:  87.9}, strength: {active: 12, passive: 12}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot Ultralight', modelShort: 'UL', color: Pro.SILVER, size: '#4',    weight: 225, range: {min:  66.0, max: 114.7}, strength: {active: 12, passive: 12}, stem: Pro.RIGID}))
+
+// black diamond - camalot x4
+prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot X4', modelShort: 'X4', color: Pro.RED,    size: '0.1',  weight:  51, range: {min:  8.4, max: 13.8}, strength: {active:  5, passive: null}, stem: Pro.FLEX}))
+prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot X4', modelShort: 'X4', color: Pro.YELLOW, size: '0.2',  weight:  54, range: {min:  9.9, max: 16.5}, strength: {active:  6, passive: null}, stem: Pro.FLEX}))
+prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot X4', modelShort: 'X4', color: Pro.BLUE,   size: '0.3',  weight:  75, range: {min: 12.4, max: 21.2}, strength: {active:  8, passive: null}, stem: Pro.FLEX}))
+prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot X4', modelShort: 'X4', color: Pro.GRAY,   size: '0.4',  weight:  82, range: {min: 15.5, max: 26.6}, strength: {active: 10, passive: null}, stem: Pro.FLEX}))
+prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot X4', modelShort: 'X4', color: Pro.PURPLE, size: '0.5',  weight:  91, range: {min: 19.8, max: 33.7}, strength: {active: 10, passive: null}, stem: Pro.FLEX}))
+prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot X4', modelShort: 'X4', color: Pro.GREEN,  size: '0.75', weight: 112, range: {min: 24.0, max: 41.2}, strength: {active: 10, passive: null}, stem: Pro.FLEX}))
 
 // black diamond - camalot z4
 prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot Z4', modelShort: 'Z4', color: Pro.GREEN,  size: '0',   weight: 43, range: {min:  7.5, max: 11.8}, strength: {active:  5, passive: null}, stem: Pro.FLEX}))
@@ -619,6 +674,22 @@ prolib.add(new Pro({type: Pro.CAM, brand: 'DMM Wales', brandShort: 'DMM', model:
 prolib.add(new Pro({type: Pro.CAM, brand: 'DMM Wales', brandShort: 'DMM', model: 'Dragon', modelShort: 'DRGN', color: Pro.PURPLE, size:  '7',   weight: 362, range: {min:  88, max: 149}, strength: {active: 14, passive: 14}, stem: Pro.RIGID}))
 prolib.add(new Pro({type: Pro.CAM, brand: 'DMM Wales', brandShort: 'DMM', model: 'Dragon', modelShort: 'DRGN', color: Pro.GREEN,  size:  '8',   weight: 515, range: {min: 116, max: 195}, strength: {active: 14, passive: 14}, stem: Pro.RIGID}))
 
+// fixe - alien
+prolib.add(new Pro({type: Pro.SLCD, brand: 'FIXE', model: 'Alien', modelShort: 'Alien', color: Pro.BLACK,  size: '1/3', weight: 66, range: {min:  8.4, max: 13.7}, strength: {active:  5, passive: null}, stem: Pro.FLEX}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'FIXE', model: 'Alien', modelShort: 'Alien', color: Pro.BLUE,   size: '3/8', weight: 71, range: {min: 10.2, max: 17.0}, strength: {active:  6, passive: null}, stem: Pro.FLEX}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'FIXE', model: 'Alien', modelShort: 'Alien', color: Pro.GREEN,  size: '1/2', weight: 74, range: {min: 13.5, max: 21.8}, strength: {active:  7, passive: null}, stem: Pro.FLEX}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'FIXE', model: 'Alien', modelShort: 'Alien', color: Pro.YELLOW, size: '3/4', weight: 74, range: {min: 16.0, max: 26.7}, strength: {active: 10, passive:    5}, stem: Pro.FLEX}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'FIXE', model: 'Alien', modelShort: 'Alien', color: Pro.SILVER, size: '7/8', weight: 88, range: {min: 18.8, max: 29.7}, strength: {active: 10, passive:    5}, stem: Pro.FLEX}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'FIXE', model: 'Alien', modelShort: 'Alien', color: Pro.RED,    size: '1',   weight: 92, range: {min: 19.8, max: 33.8}, strength: {active: 10, passive:    5}, stem: Pro.FLEX}))
+
+// fixe - alien revolution
+prolib.add(new Pro({type: Pro.SLCD, brand: 'FIXE', model: 'Alien Revolution', modelShort: 'Revo', color: Pro.BLACK,  size: '1/3', weight: 46, range: {min:  8.0, max: 14.0}, strength: {active:  5, passive: null}, stem: Pro.FLEX}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'FIXE', model: 'Alien Revolution', modelShort: 'Revo', color: Pro.BLUE,   size: '3/8', weight: 48, range: {min: 10.0, max: 17.0}, strength: {active:  6, passive: null}, stem: Pro.FLEX}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'FIXE', model: 'Alien Revolution', modelShort: 'Revo', color: Pro.GREEN,  size: '1/2', weight: 52, range: {min: 13.0, max: 22.0}, strength: {active:  7, passive: null}, stem: Pro.FLEX}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'FIXE', model: 'Alien Revolution', modelShort: 'Revo', color: Pro.YELLOW, size: '3/4', weight: 58, range: {min: 15.0, max: 25.0}, strength: {active: 10, passive: null}, stem: Pro.FLEX}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'FIXE', model: 'Alien Revolution', modelShort: 'Revo', color: Pro.SILVER, size: '7/8', weight: 59, range: {min: 17.0, max: 30.0}, strength: {active: 10, passive: null}, stem: Pro.FLEX}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'FIXE', model: 'Alien Revolution', modelShort: 'Revo', color: Pro.RED,    size: '1',   weight: 61, range: {min: 20.0, max: 33.0}, strength: {active: 10, passive: null}, stem: Pro.FLEX}))
+
 // fixe - alien x
 prolib.add(new Pro({type: Pro.SLCD, brand: 'FIXE', model: 'Alien X', modelShort: 'X', color: Pro.BLACK,  size: '1/3', weight: 55, range: {min:  9.3, max: 14.0}, strength: {active:  5, passive: null}, stem: Pro.FLEX}))
 prolib.add(new Pro({type: Pro.SLCD, brand: 'FIXE', model: 'Alien X', modelShort: 'X', color: Pro.BLUE,   size: '3/8', weight: 56, range: {min: 10.8, max: 16.1}, strength: {active:  6, passive: null}, stem: Pro.FLEX}))
@@ -627,30 +698,51 @@ prolib.add(new Pro({type: Pro.SLCD, brand: 'FIXE', model: 'Alien X', modelShort:
 prolib.add(new Pro({type: Pro.SLCD, brand: 'FIXE', model: 'Alien X', modelShort: 'X', color: Pro.SILVER, size: '7/8', weight: 66, range: {min: 18.6, max: 28.0}, strength: {active: 10, passive:    5}, stem: Pro.FLEX}))
 prolib.add(new Pro({type: Pro.SLCD, brand: 'FIXE', model: 'Alien X', modelShort: 'X', color: Pro.RED,    size: '1',   weight: 70, range: {min: 20.3, max: 33.4}, strength: {active: 10, passive:    5}, stem: Pro.FLEX}))
 
-// metolius - master
-prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Master', color: Pro.SILVER, size: '00', weight:  45, range: {min:  8.5, max: 12.0}, strength: {active:   5, passive: null}, stem: Pro.FLEX}))
-prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Master', color: Pro.PURPLE, size:  '0', weight:  45, range: {min: 10.0, max: 15.0}, strength: {active:   5, passive: null}, stem: Pro.FLEX}))
-prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Master', color: Pro.BLUE,   size:  '1', weight:  52, range: {min: 12.5, max: 18.0}, strength: {active:   8, passive: null}, stem: Pro.FLEX}))
-prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Master', color: Pro.YELLOW, size:  '2', weight:  55, range: {min: 15.5, max: 22.5}, strength: {active:  10, passive: null}, stem: Pro.FLEX}))
-prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Master', color: Pro.ORANGE, size:  '3', weight:  65, range: {min: 18.5, max: 26.5}, strength: {active:  10, passive: null}, stem: Pro.FLEX}))
-prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Master', color: Pro.RED,    size:  '4', weight:  75, range: {min: 23.5, max: 33.5}, strength: {active:  10, passive: null}, stem: Pro.FLEX}))
-prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Master', color: Pro.BLACK,  size:  '5', weight:  85, range: {min: 28.0, max: 39.5}, strength: {active:  10, passive: null}, stem: Pro.FLEX}))
-prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Master', color: Pro.GREEN,  size:  '6', weight:  96, range: {min: 32.5, max: 48.0}, strength: {active:  10, passive: null}, stem: Pro.FLEX}))
-prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Master', color: Pro.BLUE,   size:  '7', weight: 112, range: {min: 40.0, max: 57.5}, strength: {active:  10, passive: null}, stem: Pro.FLEX}))
-prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Master', color: Pro.PURPLE, size:  '8', weight: 129, range: {min: 48.5, max: 71.5}, strength: {active:  10, passive: null}, stem: Pro.FLEX}))
+// metolius - master cam
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Master Cam', modelShort: 'Master', color: Pro.SILVER, size: '00', weight:  45, range: {min:  8.5, max: 12.0}, strength: {active:   5, passive: null}, stem: Pro.FLEX}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Master Cam', modelShort: 'Master', color: Pro.PURPLE, size:  '0', weight:  45, range: {min: 10.0, max: 15.0}, strength: {active:   5, passive: null}, stem: Pro.FLEX}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Master Cam', modelShort: 'Master', color: Pro.BLUE,   size:  '1', weight:  52, range: {min: 12.5, max: 18.0}, strength: {active:   8, passive: null}, stem: Pro.FLEX}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Master Cam', modelShort: 'Master', color: Pro.YELLOW, size:  '2', weight:  55, range: {min: 15.5, max: 22.5}, strength: {active:  10, passive: null}, stem: Pro.FLEX}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Master Cam', modelShort: 'Master', color: Pro.ORANGE, size:  '3', weight:  65, range: {min: 18.5, max: 26.5}, strength: {active:  10, passive: null}, stem: Pro.FLEX}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Master Cam', modelShort: 'Master', color: Pro.RED,    size:  '4', weight:  75, range: {min: 23.5, max: 33.5}, strength: {active:  10, passive: null}, stem: Pro.FLEX}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Master Cam', modelShort: 'Master', color: Pro.BLACK,  size:  '5', weight:  85, range: {min: 28.0, max: 39.5}, strength: {active:  10, passive: null}, stem: Pro.FLEX}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Master Cam', modelShort: 'Master', color: Pro.GREEN,  size:  '6', weight:  96, range: {min: 32.5, max: 48.0}, strength: {active:  10, passive: null}, stem: Pro.FLEX}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Master Cam', modelShort: 'Master', color: Pro.BLUE,   size:  '7', weight: 112, range: {min: 40.0, max: 57.5}, strength: {active:  10, passive: null}, stem: Pro.FLEX}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Master Cam', modelShort: 'Master', color: Pro.PURPLE, size:  '8', weight: 129, range: {min: 48.5, max: 71.5}, strength: {active:  10, passive: null}, stem: Pro.FLEX}))
 
 // metolius - tcu
-prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'TCU', color: Pro.SILVER, size: '00', weight: 41, range: {min:  8.5, max: 12.0}, strength: {active:   5, passive: null}, stem: Pro.RIGID}))
-prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'TCU', color: Pro.PURPLE, size:  '0', weight: 43, range: {min: 10.0, max: 15.0}, strength: {active:   5, passive: null}, stem: Pro.RIGID}))
-prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'TCU', color: Pro.BLUE,   size:  '1', weight: 50, range: {min: 12.5, max: 18.0}, strength: {active:   8, passive: null}, stem: Pro.RIGID}))
-prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'TCU', color: Pro.YELLOW, size:  '2', weight: 57, range: {min: 15.5, max: 22.5}, strength: {active:  10, passive: null}, stem: Pro.RIGID}))
-prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'TCU', color: Pro.ORANGE, size:  '3', weight: 59, range: {min: 18.5, max: 26.5}, strength: {active:  10, passive: null}, stem: Pro.RIGID}))
-prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'TCU', color: Pro.RED,    size:  '4', weight: 68, range: {min: 23.5, max: 33.5}, strength: {active:  10, passive: null}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'TCU', modelShort: 'TCU', color: Pro.SILVER, size: '00', weight: 41, range: {min:  8.5, max: 12.0}, strength: {active:   5, passive: null}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'TCU', modelShort: 'TCU', color: Pro.PURPLE, size:  '0', weight: 43, range: {min: 10.0, max: 15.0}, strength: {active:   5, passive: null}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'TCU', modelShort: 'TCU', color: Pro.BLUE,   size:  '1', weight: 50, range: {min: 12.5, max: 18.0}, strength: {active:   8, passive: null}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'TCU', modelShort: 'TCU', color: Pro.YELLOW, size:  '2', weight: 57, range: {min: 15.5, max: 22.5}, strength: {active:  10, passive: null}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'TCU', modelShort: 'TCU', color: Pro.ORANGE, size:  '3', weight: 59, range: {min: 18.5, max: 26.5}, strength: {active:  10, passive: null}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'TCU', modelShort: 'TCU', color: Pro.RED,    size:  '4', weight: 68, range: {min: 23.5, max: 33.5}, strength: {active:  10, passive: null}, stem: Pro.RIGID}))
+
+// metolius - power cam
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Power Cam', modelShort: 'Power', color: Pro.SILVER, size: '00', weight:  45, range: {min:  8.5, max: 12.0}, strength: {active:   5, passive: null}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Power Cam', modelShort: 'Power', color: Pro.PURPLE, size:  '0', weight:  48, range: {min: 10.0, max: 15.0}, strength: {active:   5, passive: null}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Power Cam', modelShort: 'Power', color: Pro.BLUE,   size:  '1', weight:  54, range: {min: 12.5, max: 18.0}, strength: {active:   8, passive: null}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Power Cam', modelShort: 'Power', color: Pro.YELLOW, size:  '2', weight:  64, range: {min: 15.5, max: 22.5}, strength: {active:  10, passive: null}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Power Cam', modelShort: 'Power', color: Pro.ORANGE, size:  '3', weight:  68, range: {min: 18.5, max: 26.5}, strength: {active:  10, passive: null}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Power Cam', modelShort: 'Power', color: Pro.RED,    size:  '4', weight:  77, range: {min: 23.5, max: 33.5}, strength: {active:  10, passive: null}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Power Cam', modelShort: 'Power', color: Pro.BLACK,  size:  '5', weight:  86, range: {min: 28.0, max: 39.5}, strength: {active:  10, passive: null}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Power Cam', modelShort: 'Power', color: Pro.GREEN,  size:  '6', weight:  98, range: {min: 32.5, max: 48.0}, strength: {active:  10, passive: null}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Power Cam', modelShort: 'Power', color: Pro.BLUE,   size:  '7', weight: 127, range: {min: 40.0, max: 57.5}, strength: {active:  10, passive: null}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Power Cam', modelShort: 'Power', color: Pro.PURPLE, size:  '8', weight: 150, range: {min: 48.5, max: 71.5}, strength: {active:  10, passive: null}, stem: Pro.RIGID}))
+
+// metolius - fat cam
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Fat Cam', modelShort: 'Fat', color: Pro.YELLOW, size:  '2', weight:  72, range: {min: 15.5, max: 22.5}, strength: {active:  10, passive: null}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Fat Cam', modelShort: 'Fat', color: Pro.ORANGE, size:  '3', weight:  75, range: {min: 18.5, max: 26.5}, strength: {active:  10, passive: null}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Fat Cam', modelShort: 'Fat', color: Pro.RED,    size:  '4', weight:  84, range: {min: 23.5, max: 33.5}, strength: {active:  10, passive: null}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Fat Cam', modelShort: 'Fat', color: Pro.BLACK,  size:  '5', weight:  98, range: {min: 28.0, max: 39.5}, strength: {active:  10, passive: null}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Fat Cam', modelShort: 'Fat', color: Pro.GREEN,  size:  '6', weight: 111, range: {min: 32.5, max: 48.0}, strength: {active:  10, passive: null}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Fat Cam', modelShort: 'Fat', color: Pro.BLUE,   size:  '7', weight: 136, range: {min: 40.0, max: 57.5}, strength: {active:  10, passive: null}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Fat Cam', modelShort: 'Fat', color: Pro.PURPLE, size:  '8', weight: 154, range: {min: 48.5, max: 71.5}, strength: {active:  10, passive: null}, stem: Pro.RIGID}))
 
 // metolius - supercam
-prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'SUPERCAM', color: Pro.SILVER, size: 'S', weight: 184, range: {min: 42.0, max:  63.4}, strength: {active: 12, passive: null}, stem: Pro.RIGID}))
-prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'SUPERCAM', color: Pro.RED,    size: 'M', weight: 255, range: {min: 52.5, max:  91.5}, strength: {active: 12, passive: null}, stem: Pro.RIGID}))
-prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'SUPERCAM', color: Pro.BLUE,   size: 'L', weight: 312, range: {min: 66.5, max: 118.5}, strength: {active: 12, passive: null}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Supercam', color: Pro.SILVER, size: 'S', weight: 184, range: {min: 42.0, max:  63.4}, strength: {active: 12, passive: null}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Supercam', color: Pro.RED,    size: 'M', weight: 255, range: {min: 52.5, max:  91.5}, strength: {active: 12, passive: null}, stem: Pro.RIGID}))
+prolib.add(new Pro({type: Pro.SLCD, brand: 'Metolius', brandShort: 'Met', model: 'Supercam', color: Pro.BLUE,   size: 'L', weight: 312, range: {min: 66.5, max: 118.5}, strength: {active: 12, passive: null}, stem: Pro.RIGID}))
 
 // totem
 prolib.add(new Pro({type: Pro.SLCD, brand: 'Totem', model: '', color: Pro.BLACK,  size: '0.50', weight:  69, range: {min: 11.7, max: 18.9}, strength: {active:  6, passive: null}, stem: Pro.FLEX}))
@@ -696,6 +788,50 @@ Chart.register(ChartDataLabels)
 
 /* Pro Chart Filters
 ============================================== */
+
+/* brand & model filters
+===================== */
+const INCLUDE = 'include'
+const EXCLUDE = 'exclude'
+const brandModelBtns = document.querySelectorAll('.brand-model-container button')
+brandModelBtns.forEach((btn) => {
+  btn.onclick = (event) => {
+    const btn = event.srcElement
+    if (btn.classList.contains(INCLUDE)){
+      btn.classList.replace(INCLUDE, EXCLUDE)
+      if (btn.classList.contains('brand')) {
+        prolib.filter.brand.include.delete(btn.dataset.brand)
+        prolib.filter.brand.exclude.add(btn.dataset.brand)
+      } else {
+        // model
+        prolib.filter.model.include.delete(btn.dataset.model)
+        prolib.filter.model.exclude.add(btn.dataset.model)
+      }
+    }
+    else if (btn.classList.contains(EXCLUDE)) {
+      btn.classList.remove(EXCLUDE)
+      if (btn.classList.contains('brand')) {
+        prolib.filter.brand.exclude.delete(btn.dataset.brand)
+      } else {
+        // model
+        prolib.filter.model.exclude.delete(btn.dataset.model)
+      }
+    }
+    else {
+      btn.classList.add(INCLUDE)
+      if (btn.classList.contains('brand')) {
+        prolib.filter.brand.include.add(btn.dataset.brand)
+      } else {
+        // model
+        prolib.filter.model.include.add(btn.dataset.model)
+      }
+    }
+    prolib.updateChart()
+  }
+})
+
+/* range filter
+===================== */
 const driStep = 5
 const driMin = document.querySelector('#min')
 const driMax = document.querySelector('#max')

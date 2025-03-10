@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Climber's Guide</title>
-  <link rel="stylesheet" href="pro.css">
+  <link rel="stylesheet" href="pro.css?v=0.1.0">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
@@ -15,9 +15,50 @@
     <!-- <img src="friend-patent.jpg" style="width:80%;"> -->
   </div>
   <section class="row">
-    <!-- <h3 class="center">Comparison Chart</h3> -->
-    <div class="center" style="margin-bottom: 0.5rem;">
-      <p style="margin-bottom: 0.5rem;">Range</p>
+    <div class="brand-model-container" style="margin-bottom: 0.5rem;">
+      <p class="center" style="margin-bottom: 0.5rem;">Brand / Models</p>
+      <div class="row brand">
+        <button class="brand" data-brand="Black Diamond">Black Diamond</button>
+        <button class="model" data-brand="Black Diamond" data-model="Camalot C3">Camalot C3</button>
+        <button class="model" data-brand="Black Diamond" data-model="Camalot C4">Camalot C4</button>
+        <button class="model" data-brand="Black Diamond" data-model="Camalot Ultralight">Camalot Ultralight</button>
+        <button class="model" data-brand="Black Diamond" data-model="Camalot X4">Camalot X4</button>
+        <button class="model" data-brand="Black Diamond" data-model="Camalot Z4">Camalot Z4</button>
+      </div>
+      <div class="row brand">
+        <button class="brand" data-brand="DMM Wales">DMM Wales</button>
+        <button class="model" data-brand="DMM Wales" data-model="Dragon">Dragon</button>
+        <button class="model" data-brand="DMM Wales" data-model="Dragonfly">Dragonfly</button>
+      </div>
+      <div class="row brand">
+        <button class="brand" data-brand="FIXE">FIXE</button>
+        <button class="model" data-brand="FIXE" data-model="Alien">Alien</button>
+        <button class="model" data-brand="FIXE" data-model="Alien Revolution">Alien Revolution</button>
+        <button class="model" data-brand="FIXE" data-model="Alien X">Alien X</button>
+      </div>
+      <div class="row brand">
+        <button class="brand" data-brand="Metolius">Metolius</button>
+        <button class="model" data-brand="Metolius" data-model="Master Cam">Master Cam</button>
+        <button class="model" data-brand="Metolius" data-model="TCU">TCU</button>
+        <button class="model" data-brand="Metolius" data-model="Power Cam">Power Cam</button>
+        <button class="model" data-brand="Metolius" data-model="Supercam">Supercam</button>
+        <button class="model" data-brand="Metolius" data-model="Fat Cam">Fat Cam</button>
+      </div>
+      <div class="row brand">
+        <button class="brand" data-brand="Totem">Totem</button>
+      </div>
+      <div class="row brand">
+        <button class="brand" data-brand="Trango">Trango</button>
+        <button class="model" data-brand="Trango" data-model="Flex">Flex</button>
+      </div>
+      <div class="row brand">
+        <button class="brand" data-brand="Wild Country">Wild Country</button>
+        <button class="model" data-brand="Wild Country" data-model="Friend">Friend</button>
+        <button class="model" data-brand="Wild Country" data-model="Friend Zero">Friend Zero</button>
+      </div>
+    </div>
+    <div class="row center" style="margin-bottom: 0.5rem;">
+      <p style="margin-bottom: 0.5rem;">Range (mm)</p>
       <span id="dri-min-value"></span>
       <span>-</span>
       <span id="dri-max-value"></span>
@@ -66,6 +107,6 @@
       Single-axle cams can/will fail on the extreme end of undercamming. They do not have a passive strength rating. Double-axle cams however, if placed correctly, can be loaded from underneath the lobes.
     </p>
   </section> -->
-  <script src="pro.js"></script>
+  <script src="pro.js?v=0.1.0"></script>
 </body>
 </html>
