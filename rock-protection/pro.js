@@ -1,5 +1,5 @@
 /**
- * pro.js v0.1.1
+ * pro.js v0.1.2
  * (c) 2025 climber's guide contributers
  * released under the gpl-3.0 license
  */
@@ -641,7 +641,7 @@ prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', mod
 prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot X4', modelShort: 'X4', color: Pro.RED,    size: '0.1',  weight:  51, range: {min:  8.4, max: 13.8}, strength: {active:  5, passive: null}, stem: Pro.FLEX}))
 prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot X4', modelShort: 'X4', color: Pro.YELLOW, size: '0.2',  weight:  54, range: {min:  9.9, max: 16.5}, strength: {active:  6, passive: null}, stem: Pro.FLEX}))
 prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot X4', modelShort: 'X4', color: Pro.BLUE,   size: '0.3',  weight:  75, range: {min: 12.4, max: 21.2}, strength: {active:  8, passive: null}, stem: Pro.FLEX}))
-prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot X4', modelShort: 'X4', color: Pro.GRAY,   size: '0.4',  weight:  82, range: {min: 15.5, max: 26.6}, strength: {active: 10, passive: null}, stem: Pro.FLEX}))
+prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot X4', modelShort: 'X4', color: Pro.SILVER, size: '0.4',  weight:  82, range: {min: 15.5, max: 26.6}, strength: {active: 10, passive: null}, stem: Pro.FLEX}))
 prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot X4', modelShort: 'X4', color: Pro.PURPLE, size: '0.5',  weight:  91, range: {min: 19.8, max: 33.7}, strength: {active: 10, passive: null}, stem: Pro.FLEX}))
 prolib.add(new Pro({type: Pro.CAM, brand: 'Black Diamond', brandShort: 'BD', model: 'Camalot X4', modelShort: 'X4', color: Pro.GREEN,  size: '0.75', weight: 112, range: {min: 24.0, max: 41.2}, strength: {active: 10, passive: null}, stem: Pro.FLEX}))
 
