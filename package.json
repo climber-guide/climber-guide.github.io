@@ -4,7 +4,8 @@
   "description": "climber's guide",
   "main": "index.js",
   "scripts": {
-    "test": "http-server . -c-1"
+    "test": "http-server . -c-1",
+    "standard": ""
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,15 @@
   },
   "homepage": "https://github.com/climbers-guide/climbers-guide.github.io#readme",
   "devDependencies": {
-    "http-server": "^14.1.1"
+    "http-server": "^14.1.1",
+    "standard": "^17.1.2"
+  },
+  "standard": {
+    "ignore": [
+      "/book/**",
+      "/js/chart*",
+      "/js/dual-range-input.js",
+      "/rock-protection/pro.js"
+    ]
   }
 }
