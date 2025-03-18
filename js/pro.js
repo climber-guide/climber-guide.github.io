@@ -457,13 +457,13 @@ class ProChart { // eslint-disable-line no-unused-vars
 
   static COLOR = {
     MAGENTA: '#FF00FF',
+    TRANSPARENT: '#00000000',
     TEXT:
     {
       DARK: Pro.COLOR.BLACK,
       LIGHT: 'hsl(42deg 24% 92%)'
     },
     RANGE: Pro.COLOR.BLUE,
-    WEIGHT: '#C1BAA1',
     // AID: '#B03052'
     AID: '#B80000'
   }
@@ -861,38 +861,12 @@ class ProChart { // eslint-disable-line no-unused-vars
     this.chart.data.datasets = [
       {
         // data
-        type: 'line',
-        label: 'Weight (g)',
-        data: dataWeight,
-
-        // color
-        backgroundColor: Pro.COLOR.BLACK,
-        borderColor: '#C1BAA190',
-        // borderColor: 'hsl(0 0 0  / 0)',
-        pointBackgroundColor: Pro.COLOR.BLACK,
-        pointBorderColor: '#C1BAA1',
-
-        // point
-        pointBorderWidth: 2,
-        pointRadius: 6,
-        pointStyle: 'rectRot',
-
-        // scale
-        xAxisID: 'weight',
-
-        // labels
-        datalabels: {
-          display: false
-        }
-      },
-      {
-        // data
         label: Pro.RANGE.OPERATION + ' (mm)',
         data: dataOperatingRange,
 
         // border
         borderSkipped: false,
-        borderWidth: 4,
+        borderWidth: 2,
 
         // color
         backgroundColor: (context) => {
@@ -938,10 +912,10 @@ class ProChart { // eslint-disable-line no-unused-vars
 
         // border
         borderSkipped: false,
-        borderWidth: 4,
+        borderWidth: 2,
         
         // color
-        backgroundColor: 'hsl(42deg 24% 92%)',
+        backgroundColor: ProChart.COLOR.TEXT.LIGHT,
         borderColor: Pro.COLOR.BLACK,
         
         // size
@@ -965,6 +939,34 @@ class ProChart { // eslint-disable-line no-unused-vars
               }
             }
           }
+        }
+      },
+      {
+        // data
+        label: 'Weight (g)',
+        data: dataWeight,
+
+        // hide line
+        borderWidth: 0,
+
+        // color
+        backgroundColor: 'hsl(42deg 24% 84%)', // legend fill color
+        pointBackgroundColor: Pro.COLOR.BLACK,
+        pointBorderColor: ProChart.COLOR.TEXT.LIGHT,
+
+        // border
+
+        // point
+        pointBorderWidth: 1,
+        pointRadius: 8,
+        pointStyle: 'circle',
+
+        // scale
+        xAxisID: 'weight',
+
+        // labels
+        datalabels: {
+          display: false
         }
       }
     ]
@@ -1008,9 +1010,9 @@ class ProChart { // eslint-disable-line no-unused-vars
     this.chart.options.scales.weight = {
       alignToPixels: true,
       position: 'bottom',
-      // min: this.ChartScaleMinMax(Pro.WEIGHT, .48).min,
+      // min: this.#chartScale(Pro.WEIGHT, .80).min,
       min: 0,
-      max: this.#chartScale(Pro.WEIGHT, .02).max,
+      max: this.#chartScale(Pro.WEIGHT, 0).max,
       grid: {
         color: '#C1BAA1',
         display: false
