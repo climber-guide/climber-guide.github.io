@@ -76,12 +76,9 @@ input.strength {
   height: 0.3rem;
   background: var(--SILVER);
   outline: none;
-
 }
 
-input.strength::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
+input.strength::-moz-range-thumb {
   width: 2rem;
   height: 2rem;
   background: var(--BLACK);
@@ -89,7 +86,9 @@ input.strength::-webkit-slider-thumb {
   cursor: pointer;
 }
 
-input.strength.slider::-moz-range-thumb {
+input.strength::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
   width: 2rem;
   height: 2rem;
   background: var(--BLACK);

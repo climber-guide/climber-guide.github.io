@@ -87,6 +87,8 @@ class Pro {
     // DMM Wales
     DRAGON: new ProModel('Dragon', 'DRGN', true),
     DRAGONFLY: new ProModel('Dragonfly', 'FLY', true),
+    TORQUE: new ProModel('Torque Nut', 'Torq', true),
+    TORQUE_WIRED: new ProModel('Torque Nut Wired', 'Torq W', true),
     WALLNUT: new ProModel('Wallnut', null, true),
     // FIXE
     ALIEN_X: new ProModel('Alien X', null, true),
@@ -176,15 +178,15 @@ class Pro {
       },
       passive: {
         p1: Object.hasOwn(range, 'p1') ? range.p1 : null,
-        p2: Object.hasOwn(range, 'p2') ? range.p2 : null,
-        p3: Object.hasOwn(range, 'p3') ? range.p3 : null
+        p1_5: Object.hasOwn(range, 'p1_5') ? range.p1_5 : null,
+        p2: Object.hasOwn(range, 'p2') ? range.p2 : null
       }
     }
     this.strength = {
       active: Object.hasOwn(strength, 'active') ? strength.active : null,
       p1: Object.hasOwn(strength, 'p1') ? strength.p1 : null,
-      p2: Object.hasOwn(strength, 'p2') ? strength.p2 : null,
-      p3: Object.hasOwn(strength, 'p3') ? strength.p3 : null,
+      p1_5: Object.hasOwn(strength, 'p1_5') ? strength.p1_5 : null,
+      p2: Object.hasOwn(strength, 'p2') ? strength.p2 : null
     }
 
     // calculate operation range
@@ -210,7 +212,7 @@ class Pro {
         list.push(this.strength.active)
         list.push(this.strength.p1)
         list.push(this.strength.p2)
-        list.push(this.strength.p3)
+        list.push(this.strength.p1_5)
       }
     }
     list = list.filter((x) => x)
@@ -229,7 +231,7 @@ class Pro {
         list.push(this.strength.active)
         list.push(this.strength.p1)
         list.push(this.strength.p2)
-        list.push(this.strength.p3)
+        list.push(this.strength.p1_5)
       }
     }
     list = list.filter((x) => x)
@@ -303,20 +305,20 @@ PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.CAMALOT_Z4,
 PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.CAMALOT_Z4, Pro.COLOR.PURPLE, '.5',  77, Pro.STEM.FLEX, { min: 18.8, max: 33.9 }, { active: 10, p1:   10 }))
 PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.CAMALOT_Z4, Pro.COLOR.GREEN,  '.75', 93, Pro.STEM.FLEX, { min: 23.1, max: 42.1 }, { active: 10, p1:   10 }))
 
-// // Black Diamond - Stoppers
-// PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.STOPPER, Pro.COLOR.RED,     '1',  7, Pro.STEM.WIRED, { p1:  4.3, p2:  9.1 }, { p1:  2, p2:  2 }))
-// PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.STOPPER, Pro.COLOR.YELLOW,  '2',  8, Pro.STEM.WIRED, { p1:  4.8, p2:  9.9 }, { p1:  2, p2:  2 }))
-// PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.STOPPER, Pro.COLOR.BLUE,    '3', 15, Pro.STEM.WIRED, { p1:  6.1, p2: 11.4 }, { p1:  5, p2:  5 }))
-// PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.STOPPER, Pro.COLOR.SILVER,  '4', 16, Pro.STEM.WIRED, { p1:  6.9, p2: 12.4 }, { p1:  6, p2:  2 }))
-// PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.STOPPER, Pro.COLOR.PURPLE,  '5', 18, Pro.STEM.WIRED, { p1:  8.4, p2: 13.5 }, { p1:  6, p2:  3 }))
-// PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.STOPPER, Pro.COLOR.GREEN,   '6', 32, Pro.STEM.WIRED, { p1: 10.2, p2: 15.5 }, { p1: 10, p2:  3 }))
-// PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.STOPPER, Pro.COLOR.RED,     '7', 34, Pro.STEM.WIRED, { p1: 11.7, p2: 16.3 }, { p1: 10, p2:  6 }))
-// PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.STOPPER, Pro.COLOR.YELLOW,  '8', 37, Pro.STEM.WIRED, { p1: 13.5, p2: 18.3 }, { p1: 10, p2:  8 }))
-// PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.STOPPER, Pro.COLOR.BLUE,    '9', 39, Pro.STEM.WIRED, { p1: 15.2, p2: 20.8 }, { p1: 10, p2:  8 }))
-// PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.STOPPER, Pro.COLOR.SILVER, '10', 43, Pro.STEM.WIRED, { p1: 17.3, p2: 23.4 }, { p1: 10, p2: 10 }))
-// PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.STOPPER, Pro.COLOR.PURPLE, '11', 51, Pro.STEM.WIRED, { p1: 20.1, p2: 26.7 }, { p1: 10, p2: 10 }))
-// PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.STOPPER, Pro.COLOR.GREEN,  '12', 58, Pro.STEM.WIRED, { p1: 22.9, p2: 30.5 }, { p1: 10, p2: 10 }))
-// PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.STOPPER, Pro.COLOR.RED,    '13', 71, Pro.STEM.WIRED, { p1: 26.4, p2: 35.1 }, { p1: 10, p2: 10 }))
+// Black Diamond - Stoppers
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.STOPPER, Pro.COLOR.RED,     '1',  7, Pro.STEM.WIRED, { p1:  4.3, p2:  9.1 }, { p1:  2, p2:  2 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.STOPPER, Pro.COLOR.YELLOW,  '2',  8, Pro.STEM.WIRED, { p1:  4.8, p2:  9.9 }, { p1:  2, p2:  2 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.STOPPER, Pro.COLOR.BLUE,    '3', 15, Pro.STEM.WIRED, { p1:  6.1, p2: 11.4 }, { p1:  5, p2:  5 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.STOPPER, Pro.COLOR.SILVER,  '4', 16, Pro.STEM.WIRED, { p1:  6.9, p2: 12.4 }, { p1:  6, p2:  2 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.STOPPER, Pro.COLOR.PURPLE,  '5', 18, Pro.STEM.WIRED, { p1:  8.4, p2: 13.5 }, { p1:  6, p2:  3 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.STOPPER, Pro.COLOR.GREEN,   '6', 32, Pro.STEM.WIRED, { p1: 10.2, p2: 15.5 }, { p1: 10, p2:  3 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.STOPPER, Pro.COLOR.RED,     '7', 34, Pro.STEM.WIRED, { p1: 11.7, p2: 16.3 }, { p1: 10, p2:  6 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.STOPPER, Pro.COLOR.YELLOW,  '8', 37, Pro.STEM.WIRED, { p1: 13.5, p2: 18.3 }, { p1: 10, p2:  8 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.STOPPER, Pro.COLOR.BLUE,    '9', 39, Pro.STEM.WIRED, { p1: 15.2, p2: 20.8 }, { p1: 10, p2:  8 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.STOPPER, Pro.COLOR.SILVER, '10', 43, Pro.STEM.WIRED, { p1: 17.3, p2: 23.4 }, { p1: 10, p2: 10 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.STOPPER, Pro.COLOR.PURPLE, '11', 51, Pro.STEM.WIRED, { p1: 20.1, p2: 26.7 }, { p1: 10, p2: 10 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.STOPPER, Pro.COLOR.GREEN,  '12', 58, Pro.STEM.WIRED, { p1: 22.9, p2: 30.5 }, { p1: 10, p2: 10 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.STOPPER, Pro.COLOR.RED,    '13', 71, Pro.STEM.WIRED, { p1: 26.4, p2: 35.1 }, { p1: 10, p2: 10 }))
 
 // DMM Wales - Dragon
 PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.DMM_WALES, Pro.MODEL.DRAGON, Pro.COLOR.BLUE,   '00',  75, Pro.STEM.RIGID, { min:  14, max:  21 }, { active: 10, p1:  9 }))
@@ -338,18 +340,30 @@ PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.DMM_WALES, Pro.MODEL.DRAGONFLY, Pro.
 PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.DMM_WALES, Pro.MODEL.DRAGONFLY, Pro.COLOR.SILVER, '5', 70, Pro.STEM.FLEX, { min: 15.1, max: 22.5 }, { active: 9 }))
 PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.DMM_WALES, Pro.MODEL.DRAGONFLY, Pro.COLOR.PURPLE, '6', 73, Pro.STEM.FLEX, { min: 19.0, max: 28.3 }, { active: 9 }))
 
-// // DMM Wales - Wallnuts
-// PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.PURPLE,  '1', 15, Pro.STEM.WIRED, { p1:  6.7, p2: 14.3 }, { p1:  7, p2:  7 }))
-// PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.GREEN,   '2', 26, Pro.STEM.WIRED, { p1:  8.1, p2: 15.8 }, { p1:  9, p2:  9 }))
-// PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.SILVER,  '3', 28, Pro.STEM.WIRED, { p1:  9.4, p2: 16.5 }, { p1: 11, p2: 11 }))
-// PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.YELLOW,  '4', 30, Pro.STEM.WIRED, { p1: 11.0, p2: 17.6 }, { p1: 12, p2: 12 }))
-// PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.BLUE,    '5', 32, Pro.STEM.WIRED, { p1: 13.2, p2: 19.4 }, { p1: 12, p2: 12 }))
-// PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.RED,     '6', 39, Pro.STEM.WIRED, { p1: 15.6, p2: 22.6 }, { p1: 12, p2: 12 }))
-// PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.SILVER,  '7', 40, Pro.STEM.WIRED, { p1: 18.9, p2: 25.8 }, { p1: 12, p2: 12 }))
-// PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.BLUE,    '8', 45, Pro.STEM.WIRED, { p1: 22.3, p2: 29.0 }, { p1: 12, p2: 12 }))
-// PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.YELLOW,  '9', 50, Pro.STEM.WIRED, { p1: 25.2, p2: 32.1 }, { p1: 12, p2: 12 }))
-// PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.SILVER, '10', 56, Pro.STEM.WIRED, { p1: 28.8, p2: 32.6 }, { p1: 12, p2: 12 }))
-// PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.GREEN,  '11', 68, Pro.STEM.WIRED, { p1: 33.1, p2: 37.4 }, { p1: 12, p2: 12 }))
+// DMM Wales - Torque Nuts Wire
+PROLIB.push(new Pro(Pro.TYPE.HEX, Pro.BRAND.DMM_WALES, Pro.MODEL.TORQUE, Pro.COLOR.GREEN,  '1',  54, Pro.STEM.SLING, { p1: 31.0, p1_5: 36.0, p2: 41.0 }, { p1: 14, p2: 14 }))
+PROLIB.push(new Pro(Pro.TYPE.HEX, Pro.BRAND.DMM_WALES, Pro.MODEL.TORQUE, Pro.COLOR.RED,    '2',  70, Pro.STEM.SLING, { p1: 36.0, p1_5: 42.5, p2: 49.0 }, { p1: 14, p2: 14 }))
+PROLIB.push(new Pro(Pro.TYPE.HEX, Pro.BRAND.DMM_WALES, Pro.MODEL.TORQUE, Pro.COLOR.YELLOW, '3', 104, Pro.STEM.SLING, { p1: 44.0, p1_5: 51.5, p2: 59.0 }, { p1: 14, p2: 14 }))
+PROLIB.push(new Pro(Pro.TYPE.HEX, Pro.BRAND.DMM_WALES, Pro.MODEL.TORQUE, Pro.COLOR.BLUE,   '4', 146, Pro.STEM.SLING, { p1: 54.0, p1_5: 62.5, p2: 71.0 }, { p1: 14, p2: 14 }))
+
+// DMM Wales - Torque Nuts Wire
+PROLIB.push(new Pro(Pro.TYPE.HEX, Pro.BRAND.DMM_WALES, Pro.MODEL.TORQUE_WIRED, Pro.COLOR.GREEN,  '1',  69, Pro.STEM.WIRED, { p1: 31.0, p1_5: 36.0, p2: 41.0 }, { p1: 12, p2: 12 }))
+PROLIB.push(new Pro(Pro.TYPE.HEX, Pro.BRAND.DMM_WALES, Pro.MODEL.TORQUE_WIRED, Pro.COLOR.RED,    '2',  86, Pro.STEM.WIRED, { p1: 36.0, p1_5: 42.5, p2: 49.0 }, { p1: 12, p2: 12 }))
+PROLIB.push(new Pro(Pro.TYPE.HEX, Pro.BRAND.DMM_WALES, Pro.MODEL.TORQUE_WIRED, Pro.COLOR.YELLOW, '3', 114, Pro.STEM.WIRED, { p1: 44.0, p1_5: 51.5, p2: 59.0 }, { p1: 12, p2: 12 }))
+PROLIB.push(new Pro(Pro.TYPE.HEX, Pro.BRAND.DMM_WALES, Pro.MODEL.TORQUE_WIRED, Pro.COLOR.BLUE,   '4', 161, Pro.STEM.WIRED, { p1: 54.0, p1_5: 62.5, p2: 71.0 }, { p1: 12, p2: 12 }))
+
+// DMM Wales - Wallnuts
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.PURPLE,  '1', 15, Pro.STEM.WIRED, { p1:  6.7, p2: 14.3 }, { p1:  7, p2:  7 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.GREEN,   '2', 26, Pro.STEM.WIRED, { p1:  8.1, p2: 15.8 }, { p1:  9, p2:  9 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.SILVER,  '3', 28, Pro.STEM.WIRED, { p1:  9.4, p2: 16.5 }, { p1: 11, p2: 11 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.YELLOW,  '4', 30, Pro.STEM.WIRED, { p1: 11.0, p2: 17.6 }, { p1: 12, p2: 12 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.BLUE,    '5', 32, Pro.STEM.WIRED, { p1: 13.2, p2: 19.4 }, { p1: 12, p2: 12 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.RED,     '6', 39, Pro.STEM.WIRED, { p1: 15.6, p2: 22.6 }, { p1: 12, p2: 12 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.SILVER,  '7', 40, Pro.STEM.WIRED, { p1: 18.9, p2: 25.8 }, { p1: 12, p2: 12 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.BLUE,    '8', 45, Pro.STEM.WIRED, { p1: 22.3, p2: 29.0 }, { p1: 12, p2: 12 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.YELLOW,  '9', 50, Pro.STEM.WIRED, { p1: 25.2, p2: 32.1 }, { p1: 12, p2: 12 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.SILVER, '10', 56, Pro.STEM.WIRED, { p1: 28.8, p2: 32.6 }, { p1: 12, p2: 12 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.GREEN,  '11', 68, Pro.STEM.WIRED, { p1: 33.1, p2: 37.4 }, { p1: 12, p2: 12 }))
 
 // FIXE - Alien X
 PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.FIXE, Pro.MODEL.ALIEN_X, Pro.COLOR.BLACK,  '1/3', 55, Pro.STEM.FLEX, { min:  9.3, max: 14.0 }, { active:  5, p1: null }))
@@ -607,7 +621,6 @@ class ProChart { // eslint-disable-line no-unused-vars
       const btn = event.srcElement
       const type = btn.classList.contains('brand') ? 'brand' : 'model'
       const name = btn.innerText
-      console.log(this.filter)
 
       if (btn.classList.contains(INCLUDE)) {
         btn.classList.replace(INCLUDE, EXCLUDE)
@@ -620,7 +633,6 @@ class ProChart { // eslint-disable-line no-unused-vars
         btn.classList.add(INCLUDE)
         this.filter[type].include.add(name)
       }
-      console.log(this.filter)
       this.#refreshChart()
     }
 
@@ -681,7 +693,7 @@ class ProChart { // eslint-disable-line no-unused-vars
 
     const strHeader = document.createElement('header')
     strHeader.classList.add('filter')
-    strHeader.textContent = 'Strength (kn)'
+    strHeader.textContent = 'Strength (kN)'
     strSection.append(strHeader)
 
     const strOutputContainer = document.createElement('div')
@@ -811,14 +823,22 @@ class ProChart { // eslint-disable-line no-unused-vars
       const mFilter = this.filter.model
       const brand = pro.brand.name
       const model = pro.model ? pro.model.name : null
-      // exclude
+      // exclude 
       if (bFilter.exclude.has(brand) || mFilter.exclude.has(model)) return false
       // include
-      if (bFilter.include.size !== 0 || mFilter.include.size !== 0) {
-        if (bFilter.include.has(brand) === false && mFilter.include.has(model) === false) return false
-        if (bFilter.include.has(brand) && mFilter.include.has(model) === false && mFilter.include.size !== 0) return false
+      if (bFilter.include.size === 0 && mFilter.include.size === 0) return true
+      if (mFilter.include.has(model) && mFilter.include.size !== 0) return true
+      if (bFilter.include.has(brand) && mFilter.include.size === 0) return true
+      if (bFilter.include.has(brand) && !mFilter.include.has(model) && mFilter.include.size !== 0) {
+        // brand included, model not included; other models included
+        // make sure other models do not have same brand
+        let include = true
+        mFilter.include.forEach((m) => {
+          if (this.BMMap.get(brand).has(m)) include = false
+        })
+        return include
       }
-      return true
+      return false
     })
 
     // filter - strength
@@ -847,11 +867,11 @@ class ProChart { // eslint-disable-line no-unused-vars
     const dataP1Range = this.#proList.map((pro) => {
       return pro.range.passive.p1
     })
+    const dataP1_5Range = this.#proList.map((pro) => {
+      return pro.range.passive.p1_5
+    })
     const dataP2Range = this.#proList.map((pro) => {
       return pro.range.passive.p2
-    })
-    const dataP3Range = this.#proList.map((pro) => {
-      return pro.range.passive.p3
     })
     const dataWeight = this.#proList.map((pro) => {
       return pro.weight
@@ -859,6 +879,114 @@ class ProChart { // eslint-disable-line no-unused-vars
 
     this.chart.data.labels = dataLabels
     this.chart.data.datasets = [
+      {
+        type: 'line',
+        label: Pro.RANGE.PASSIVE + ' P1 (mm)',
+        data: dataP1Range,
+        // line
+        backgroundColor: Pro.COLOR.BLACK,
+        borderWidth: 0,
+        // point
+        pointBackgroundColor: (context) => {
+          if (this.#proList.length === 0) return ProChart.COLOR.TRANSPARENT
+          return this.#proList[context.dataIndex].color
+        },
+        pointBorderColor: ProChart.COLOR.TEXT.DARK,
+        pointBorderWidth: 2,
+        pointHoverBorderWidth: 2,
+        pointHoverRadius: 10,
+        pointRadius: 10,
+        pointStyle: 'rectRot',
+        // labels
+        datalabels: {
+          labels: {
+            brandModelSize: {
+              color: Pro.COLOR.BLACK,
+              anchor: 'center',
+              align: 'left',
+              offset: 12,
+              font: { weight: 'bold' },
+              formatter: (value, context) => {
+                if (this.#proList.length === 0) return ''
+                if (value === null) return ''
+                const pro = this.#proList[context.dataIndex]
+                return pro.label(true)
+              }
+            },
+            strength: {
+              color: Pro.COLOR.BLACK,
+              anchor: 'center',
+              align: 'right',
+              offset: 12,
+              font: { weight: 'bold' },
+              formatter: (value, context) => {
+                if (this.#proList.length === 0) return ''
+                if (value === null) return ''
+                const pro = this.#proList[context.dataIndex]
+                if (pro.strength.p1 === pro.strength.p2) return ''
+                else return pro.strength.p1
+              }
+            }
+          }
+        }
+      },
+      {
+        type: 'line',
+        label: Pro.RANGE.PASSIVE + ' P1.5 (mm)',
+        data: dataP1_5Range,
+        // line
+        backgroundColor: Pro.COLOR.BLACK,
+        borderWidth: 0,
+        // point
+        pointBackgroundColor: (context) => {
+          if (this.#proList.length === 0) return ProChart.COLOR.TRANSPARENT
+          return this.#proList[context.dataIndex].color
+        },
+        pointBorderColor: ProChart.COLOR.TEXT.DARK,
+        pointBorderWidth: 2,
+        pointHoverBorderWidth: 2,
+        pointHoverRadius: 10,
+        pointRadius: 10,
+        pointStyle: 'rectRot',
+        // labels
+        datalabels: { display: false }
+      },
+      {
+        type: 'line',
+        label: Pro.RANGE.PASSIVE + ' P2 (mm)',
+        data: dataP2Range,
+        // line
+        backgroundColor: Pro.COLOR.BLACK,
+        borderWidth: 0,
+        // point
+        pointBackgroundColor: (context) => {
+          if (this.#proList.length === 0) return ProChart.COLOR.TRANSPARENT
+          return this.#proList[context.dataIndex].color
+        },
+        pointBorderColor: ProChart.COLOR.TEXT.DARK,
+        pointBorderWidth: 2,
+        pointHoverBorderWidth: 2,
+        pointHoverRadius: 10,
+        pointRadius: 10,
+        pointStyle: 'rectRot',
+        // labels
+        datalabels: {
+          labels: {
+            strength: {
+              color: Pro.COLOR.BLACK,
+              anchor: 'center',
+              align: 'right',
+              offset: 12,
+              font: { weight: 'bold' },
+              formatter: (value, context) => {
+                if (this.#proList.length === 0) return ''
+                if (value === null) return ''
+                return this.#proList[context.dataIndex].strength.p2
+              }
+            }
+          }
+        }
+      },
       {
         // data
         label: Pro.RANGE.OPERATION + ' (mm)',
@@ -870,8 +998,8 @@ class ProChart { // eslint-disable-line no-unused-vars
 
         // color
         backgroundColor: (context) => {
-          if (this.length !== 0) return this.#proList[context.dataIndex].color
-          else return ProChart.COLOR.TEXT.LIGHT
+          if (this.#proList.length === 0) return ProChart.COLOR.TRANSPARENT
+          return this.#proList[context.dataIndex].color
         },
         borderColor: Pro.COLOR.BLACK,
 
@@ -934,6 +1062,7 @@ class ProChart { // eslint-disable-line no-unused-vars
               },
               formatter: (value, context) => {
                 if (this.#proList.length === 0) return ''
+                if (value.includes(null)) return ''
                 const pro = this.#proList[context.dataIndex]
                 return pro.label(true)
               }
@@ -945,6 +1074,7 @@ class ProChart { // eslint-disable-line no-unused-vars
               font: { weight: 'bold' },
               formatter: (value, context) => {
                 if (this.#proList.length === 0) return ''
+                if (value.includes(null)) return ''
                 const pro = this.#proList[context.dataIndex]
                 const active = pro.strength.active
                 const p1 = pro.strength.p1
@@ -952,12 +1082,14 @@ class ProChart { // eslint-disable-line no-unused-vars
                 let data = null
                 if (active) {
                   data = active
-                  if (p1 && active !== p1) data += '/' + p1
+                  if (p1 === null) data += '/X'
+                  else if (active !== p1) data += '/' + p1
                 } else {
                   data = p1
                   if (p1 !== p2) data += '/' + p2
                 }
-                return data + ' kN'
+                // return data + ' kN'
+                return data
               }
             }
           }
@@ -1032,6 +1164,14 @@ class ProChart { // eslint-disable-line no-unused-vars
         font: {
           weight: 'bold',
           size: 14
+        }
+      }
+    }
+    this.chart.options.plugins.legend = {
+      labels: {
+        filter: (legendItems) => {
+          if (legendItems.text.includes(Pro.RANGE.PASSIVE)) return false
+          return true
         }
       }
     }
