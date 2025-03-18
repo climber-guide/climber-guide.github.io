@@ -925,7 +925,7 @@ class ProChart { // eslint-disable-line no-unused-vars
         // labels
         datalabels: {
           labels: {
-            brand: {
+            brandModelSize: {
               color: Pro.COLOR.BLACK,
               anchor: 'start',
               align: 'left',
@@ -937,6 +937,28 @@ class ProChart { // eslint-disable-line no-unused-vars
                 const pro = this.#proList[context.dataIndex]
                 return pro.label(true)
               }
+            },
+            strength: {
+              color: Pro.COLOR.BLACK,
+              anchor: 'end',
+              align: 'right',
+              font: { weight: 'bold' },
+              formatter: (value, context) => {
+                if (this.#proList.length === 0) return ''
+                const pro = this.#proList[context.dataIndex]
+                const active = pro.strength.active
+                const p1 = pro.strength.p1
+                const p2 = pro.strength.p2
+                let data = null
+                if (active) {
+                  data = active
+                  if (p1 && active !== p1) data += '/' + p1
+                } else {
+                  data = p1
+                  if (p1 !== p2) data += '/' + p2
+                }
+                return data + ' kN'
+              }
             }
           }
         }
@@ -946,20 +968,8 @@ class ProChart { // eslint-disable-line no-unused-vars
         label: 'Weight (g)',
         data: dataWeight,
 
-        // hide line
-        borderWidth: 0,
-
         // color
         backgroundColor: 'hsl(42deg 24% 84%)', // legend fill color
-        pointBackgroundColor: Pro.COLOR.BLACK,
-        pointBorderColor: ProChart.COLOR.TEXT.LIGHT,
-
-        // border
-
-        // point
-        pointBorderWidth: 1,
-        pointRadius: 8,
-        pointStyle: 'circle',
 
         // scale
         xAxisID: 'weight',
@@ -995,8 +1005,8 @@ class ProChart { // eslint-disable-line no-unused-vars
     this.chart.options.scales.x = {
       alignToPixels: true,
       position: 'top',
-      min: this.#chartScale(Pro.RANGE, .08).min,
-      max: this.#chartScale(Pro.RANGE, .16).max,
+      min: this.#chartScale(Pro.RANGE, .12).min,
+      max: this.#chartScale(Pro.RANGE, .32).max,
       grid: {
         color: Pro.COLOR.BLUE + '90'
       },
