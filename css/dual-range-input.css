@@ -1,3 +1,8 @@
+/* dual-range-input.css v1.0.0
+ * Copyright 2024, Stanko
+ * MIT License
+============================================================================ */
+
 .dual-range-input {
     --dri-height: 1.5rem;
     --dri-thumb-width: 1.25rem;

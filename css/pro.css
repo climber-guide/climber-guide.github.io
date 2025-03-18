@@ -1,0 +1,125 @@
+/******************************************************************************
+ * pro.css v0.1.0
+ * (c) 2025, Grant Freeman
+ * GPL 3.0 License
+******************************************************************************/
+@import url(/css/base.css);
+
+:root {
+  --RED:      #C96868;
+  --ORANGE:   #FFB26F;
+  --YELLOW:   #FADFA1;
+  --GREEN:    #9DBC98;
+  --BLUE:     #8CC0DE;
+  --PURPLE:   #A888B5;
+  --SILVER:   #C7C8CC;
+  --BLACK:    #41444B;
+}
+
+header.filter {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* brand / model
+============================================================================ */
+.brand-model-container button {
+  background-color: hsl(42deg 24% 95%);
+  border: 2px solid var(--BLACK);
+  border-radius: 4px;
+  color: black;
+  padding: 4px;
+  margin-top: 0.4rem;
+}
+
+.brand-model-container > .row {
+  padding-bottom: 0.4rem;
+  border-bottom: 1px  solid hsl(42deg 24% 84%);
+}
+
+button.brand {
+  width: 100%;
+}
+
+button.model {
+  margin-right: 0.5rem;
+}
+
+button.model:last-child {
+  margin-right: 0;
+}
+
+button.include {
+  background-color: var(--BLUE);
+}
+
+button.exclude {
+  background-color: var(--RED);
+}
+
+@media (max-width: 550px) {
+  div.two.columns {
+    width: 30.6666666667%;
+  }
+
+  div.ten.columns {
+    width: 65.3333333333%;
+  }
+}
+
+/* strength slider
+============================================================================ */
+
+input.strength {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 0.3rem;
+  background: var(--SILVER);
+  outline: none;
+
+}
+
+input.strength::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 2rem;
+  height: 2rem;
+  background: var(--BLACK);
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+input.strength.slider::-moz-range-thumb {
+  width: 2rem;
+  height: 2rem;
+  background: var(--BLACK);
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+/* range slider
+============================================================================ */
+
+.dual-range-input {
+  --dri-thumb-width: 2rem;
+  --dri-thumb-height: 2rem;
+  --dri-thumb-color: var(--BLACK);
+  --dri-thumb-border-color: var(--BLACK);
+  --dri-thumb-border-radius: 1rem;
+  --dri-thumb-border-width: 1px;
+
+  --dri-track-color: var(--SILVER);
+  --dri-track-filled-color: var(--BLACK);
+  
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.dual-range-input input {
+  border: none;
+}
+
+/* canvas */
+canvas {
+  margin-bottom: 1.5rem;
+}
