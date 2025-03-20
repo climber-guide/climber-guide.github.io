@@ -1,5 +1,5 @@
 /******************************************************************************
- * pro.css v0.1.0
+ * pro.css v1.0.0
  * (c) 2025, Grant Freeman
  * GPL 3.0 License
 ******************************************************************************/
@@ -23,7 +23,8 @@ header.filter {
 
 /* brand / model
 ============================================================================ */
-.brand-model-container button {
+.brand-model-container button,
+.type-container button {
   background-color: hsl(42deg 24% 95%);
   border: 2px solid var(--BLACK);
   border-radius: 4px;
@@ -32,7 +33,8 @@ header.filter {
   margin-top: 0.4rem;
 }
 
-.brand-model-container > .row {
+.brand-model-container > .row
+.type-container > .row {
   padding-bottom: 0.4rem;
   border-bottom: 1px  solid hsl(42deg 24% 84%);
 }
@@ -41,12 +43,18 @@ button.brand {
   width: 100%;
 }
 
-button.model {
+button.model,
+button.type {
   margin-right: 0.5rem;
 }
 
-button.model:last-child {
+button.model:last-child,
+button.type:last-child {
   margin-right: 0;
+}
+
+button.type {
+  width: 64px;
 }
 
 button.include {

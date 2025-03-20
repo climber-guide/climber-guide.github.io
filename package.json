@@ -18,5 +18,11 @@
   "homepage": "https://github.com/climbers-guide/climbers-guide.github.io#readme",
   "devDependencies": {
     "http-server": "^14.1.1"
+  },
+  "standard": {
+    "ignore": [
+      "chart*",
+      "book/*"
+    ]
   }
 }

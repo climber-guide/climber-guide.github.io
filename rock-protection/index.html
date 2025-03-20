@@ -5,113 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Climber's Guide</title>
   <link rel="stylesheet" href="/css/dual-range-input.css?v=1.0.0">
-  <link rel="stylesheet" href="/css/pro.css?v=0.1.0">
+  <link rel="stylesheet" href="/css/pro.css?v=1.0.0">
   <script src="/js/chart.js?v=4.4.8"></script>
   <script src="/js/chartjs-plugin-datalabels.js?v=2.2.0"></script>
   <script src="/js/dual-range-input.js?v=1.0.0"></script>
-  <script src="/js/pro.js?v=0.2.1"></script>
+  <script src="/js/pro.js?v=1.0.0"></script>
 </head>
 <body class="container">
   <div class="row center">
     <h1>Rock Protection</h1>
-    <!-- <img src="friend-patent.jpg" style="width:80%;"> -->
   </div>
   <section id="pro-chart">
-    <h3 class="center">Pro Chart</h3>
     <section id="pro-chart-container"></section>
   </section>
-  <!-- <section class="row">
-    <div class="brand-model-container" style="margin-bottom: 0.5rem;">
-      <p class="center" style="margin-bottom: 0.5rem;">Brand / Models</p>
-      <div class="row brand">
-        <button class="brand" data-brand="Black Diamond">Black Diamond</button>
-        <button class="model" data-brand="Black Diamond" data-model="Camalot C3">Camalot C3</button>
-        <button class="model" data-brand="Black Diamond" data-model="Camalot C4">Camalot C4</button>
-        <button class="model" data-brand="Black Diamond" data-model="Camalot Ultralight">Camalot Ultralight</button>
-        <button class="model" data-brand="Black Diamond" data-model="Camalot X4">Camalot X4</button>
-        <button class="model" data-brand="Black Diamond" data-model="Camalot Z4">Camalot Z4</button>
-      </div>
-      <div class="row brand">
-        <button class="brand" data-brand="DMM Wales">DMM Wales</button>
-        <button class="model" data-brand="DMM Wales" data-model="Dragon">Dragon</button>
-        <button class="model" data-brand="DMM Wales" data-model="Dragonfly">Dragonfly</button>
-      </div>
-      <div class="row brand">
-        <button class="brand" data-brand="FIXE">FIXE</button>
-        <button class="model" data-brand="FIXE" data-model="Alien X">Alien X</button>
-      </div>
-      <div class="row brand">
-        <button class="brand" data-brand="Metolius">Metolius</button>
-        <button class="model" data-brand="Metolius" data-model="Master Cam">Master Cam</button>
-        <button class="model" data-brand="Metolius" data-model="TCU">TCU</button>
-        <button class="model" data-brand="Metolius" data-model="Power Cam">Power Cam</button>
-        <button class="model" data-brand="Metolius" data-model="Supercam">Supercam</button>
-        <button class="model" data-brand="Metolius" data-model="Fat Cam">Fat Cam</button>
-      </div>
-      <div class="row brand">
-        <button class="brand" data-brand="Totem">Totem</button>
-      </div>
-      <div class="row brand">
-        <button class="brand" data-brand="Trango">Trango</button>
-        <button class="model" data-brand="Trango" data-model="Flex">Flex</button>
-      </div>
-      <div class="row brand">
-        <button class="brand" data-brand="Wild Country">Wild Country</button>
-        <button class="model" data-brand="Wild Country" data-model="Friend">Friend</button>
-        <button class="model" data-brand="Wild Country" data-model="Friend Zero">Friend Zero</button>
-      </div>
-    </div>
-    <div class="row center" style="margin-bottom: 0.5rem;">
-      <p style="margin-bottom: 0.5rem;">Range (mm)</p>
-      <span id="dri-min-value"></span>
-      <span>-</span>
-      <span id="dri-max-value"></span>
-      <div class="dual-range-input">
-        <input type="range" min="5" max="325" step="5" value="5" id="min" />
-        <input type="range" min="5" max="325" step="5" value="75" id="max" />
-      </div>
-    </div> -->
-    <div class="chart-container">
-      <canvas id="all-pro-dynamic"></canvas>
-    </div>
-  </section>
-  <!-- <section class="row">
-    <h4 class="center">SLCD - Friend - Cam</h4>
-    <div class="center">
-    </div>
-  </section>
-  <section class="row">
-    <h4 class="center">Appendix</h4>
-    <p><b>Expansion Range vs. Operational Range</b></p>
-    <p>
-      You're on the upper section of a pitch, you have a <b>BD C4 .75</b> and a <b>BD C4 #2</b> left for hand sizes. Finding a stance, you try placing the <b>#2</b> but it won't squeeze in. Switching to the <b>.75</b>, it sticks but it's stressfully tipped out. As you tinker with the placement, you begin to regret "wasting" your <b>#1</b>s below.
-    </p>
-    <p>
-      Oddly, this example does not align with what we often on a cam's product page. Looking at range tables, a crack too small for a <b>#2</b> should be well within the range of a <b>.75</b>, noted by the red line on <i>Figure 1</i>. This disparity is due to range tables showing the <b>expansion range</b> of cams.
-    </p>
-    <div class="chart-container">
-      <canvas id="figure-evo-1"></canvas>
-    </div>
-    <p>
-      Nearly all manufacturers, minus <i>Wild Country</i>, will show the <b>expansion range</b> of the cam. This is the absolute range of the device, from fully-cammed to no camming, as opposed to the usable range of a cam known as the <b>operational range</b>. To prevent the climber from overcamming and welding the device into the rock, manufacturers trim <b>10%</b>. On the other end for many reason (walking, lobe angle engagement, single axle failure, etc.), they take roughly <b>25%</b> off to protect from undercamming. This leaves each cam you own with a cozy 65% safe working range.*
-    </p>
-    <p>
-      If we take the the previous chart and adjust it to show the <b>operational range</b> instead, the story above begins to line up in <i>Figure 2</i>.
-    </p>
-    <div class="chart-container">
-      <canvas id="figure-evo-2"></canvas>
-    </div>
-    <p>
-      <i>* The following cases need to be made for nuanced use of a cam:</i>
-    </p>
-    <p>
-      An extremely overcammed device will not effect the strength rating, but may affect the friction coefficient. The friction might rely more on the natural constriction of the rock. You also risk turning your device into an expensive fixed nut.
-    </p>
-    <p>
-      Single-axle cams can/will fail on the extreme end of undercamming. They do not have a passive strength rating. Double-axle cams however, if placed correctly, can be loaded from underneath the lobes.
-    </p>
-  </section> -->
-  <script src="index.js"></script>
-  <!-- <script src="pro.js?v=0.1.2"></script> -->
+  <script src="index.js?v=1.0.0"></script>
 </body>
 </html>
