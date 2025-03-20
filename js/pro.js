@@ -1,5 +1,5 @@
 /*************************************************************************************************
- * pro.js v1.0.0                                                                                 *
+ * pro.js v1.1.0                                                                                 *
  * (c) 2025 Grant Freeman                                                                        *
  * License GPL 3.0                                                                               *
  *************************************************************************************************/
@@ -97,6 +97,7 @@ class Pro {
     PRO_NUT: new ProModel('Pro Nut', 'Pro', true),
     BALL_NUT: new ProModel('Ball Nut', null, true),
     // DMM Wales
+    BRASS_OFFSET: new ProModel('Brass Offset', null, true),
     DMM_OFFSET: new ProModel('Alloy Offset', 'Offset', true),
     DRAGON: new ProModel('Dragon', 'DRGN', true),
     DRAGONFLY: new ProModel('Dragonfly', 'FLY', true),
@@ -123,12 +124,12 @@ class Pro {
     FLEX: new ProModel('Flex', null, true),
     TRANGO_OFFSET: new ProModel('Offset Nut', 'Offset', true),
     // Wild Country
-    ROCK_CLASSIC: new ProModel('Classic Rock', 'Classic', true),
     FRIEND: new ProModel('Friend', null, true),
     FRIEND_ZERO: new ProModel('Friend Zero', 'Zero', true),
     ROCK: new ProModel('Rock', null, true),
-    ROCKCENTRIC: new ProModel('Rockcentric', 'Centric', true),
-    ROCK_OFFSET: new ProModel('Offset Rock', 'Offset', true)
+    ROCK_CLASSIC: new ProModel('Rock Classic', 'Classic', true),
+    ROCK_OFFSET: new ProModel('Rock Offset', 'Offset', true),
+    ROCKCENTRIC: new ProModel('Rockcentric', 'Centric', true)
   }
 
   static RANGE = {
@@ -348,13 +349,6 @@ PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.CAMALOT_Z4,
 // PROLIB.push(new Pro(Pro.TYPE.HEX, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.HEXENTRIC, Pro.COLOR.SILVER, '1', 164, Pro.STEM.WIRED, { p1: , p1_5: , p2: }, { p1: 10, p2: 10 }))
 // PROLIB.push(new Pro(Pro.TYPE.HEX, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.HEXENTRIC, Pro.COLOR.PURPLE, '1', 206, Pro.STEM.WIRED, { p1: , p1_5: , p2: }, { p1: 10, p2: 10 }))
 
-// Black Diamond - Micro Stoppers
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.MICRO_STOPPER, Pro.COLOR.SILVER, '1',  4, Pro.STEM.WIRED, { p1: 3.7, p2:  5.1 }, { p1: 2, p2: 2 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.MICRO_STOPPER, Pro.COLOR.SILVER, '2',  7, Pro.STEM.WIRED, { p1: 4.6, p2:  6.5 }, { p1: 3, p2: 3 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.MICRO_STOPPER, Pro.COLOR.SILVER, '4', 13, Pro.STEM.WIRED, { p1: 5.9, p2:  8.4 }, { p1: 6, p2: 6 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.MICRO_STOPPER, Pro.COLOR.SILVER, '5', 15, Pro.STEM.WIRED, { p1: 7.4, p2:  9.4 }, { p1: 6, p2: 6 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.MICRO_STOPPER, Pro.COLOR.SILVER, '6', 21, Pro.STEM.WIRED, { p1: 8.8, p2: 10.4 }, { p1: 8, p2: 8 }))
-
 // Black Diamond - Stoppers
 PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.STOPPER, Pro.COLOR.RED,     '1',  7, Pro.STEM.WIRED, { p1:  4.3, p2:  9.1 }, { p1:  2, p2:  2 }))
 PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.STOPPER, Pro.COLOR.YELLOW,  '2',  8, Pro.STEM.WIRED, { p1:  4.8, p2:  9.9 }, { p1:  2, p2:  2 }))
@@ -369,6 +363,13 @@ PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.STOPPER, Pr
 PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.STOPPER, Pro.COLOR.PURPLE, '11', 51, Pro.STEM.WIRED, { p1: 20.1, p2: 26.7 }, { p1: 10, p2: 10 }))
 PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.STOPPER, Pro.COLOR.GREEN,  '12', 58, Pro.STEM.WIRED, { p1: 22.9, p2: 30.5 }, { p1: 10, p2: 10 }))
 PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.STOPPER, Pro.COLOR.RED,    '13', 71, Pro.STEM.WIRED, { p1: 26.4, p2: 35.1 }, { p1: 10, p2: 10 }))
+
+// Black Diamond - Micro Stoppers
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.MICRO_STOPPER, Pro.COLOR.SILVER, '1',  4, Pro.STEM.WIRED, { p1: 3.7, p2:  5.1 }, { p1: 2, p2: 2 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.MICRO_STOPPER, Pro.COLOR.SILVER, '2',  7, Pro.STEM.WIRED, { p1: 4.6, p2:  6.5 }, { p1: 3, p2: 3 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.MICRO_STOPPER, Pro.COLOR.SILVER, '4', 13, Pro.STEM.WIRED, { p1: 5.9, p2:  8.4 }, { p1: 6, p2: 6 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.MICRO_STOPPER, Pro.COLOR.SILVER, '5', 15, Pro.STEM.WIRED, { p1: 7.4, p2:  9.4 }, { p1: 6, p2: 6 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.MICRO_STOPPER, Pro.COLOR.SILVER, '6', 21, Pro.STEM.WIRED, { p1: 8.8, p2: 10.4 }, { p1: 8, p2: 8 }))
 
 /* CAMP ******************************************************************************************/
 
@@ -409,13 +410,6 @@ PROLIB.push(new Pro(Pro.TYPE.TRICAM, Pro.BRAND.CAMP, Pro.MODEL.TRICAM_DYNEEMA, P
 
 /* DMM WALES *************************************************************************************/
 
-// DMM Wales - Alloy Offset
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.DMM_OFFSET, Pro.COLOR.YELLOW,  '7', 27, Pro.STEM.WIRED, { p1: 12.0, p2: 15.1 }, { p1: 12, p2: 12 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.DMM_OFFSET, Pro.COLOR.BLUE,    '8', 30, Pro.STEM.WIRED, { p1: 13.5, p2: 17.9 }, { p1: 12, p2: 12 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.DMM_OFFSET, Pro.COLOR.RED,     '9', 37, Pro.STEM.WIRED, { p1: 17.1, p2: 21.4 }, { p1: 12, p2: 12 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.DMM_OFFSET, Pro.COLOR.SILVER, '10', 45, Pro.STEM.WIRED, { p1: 19.4, p2: 25.1 }, { p1: 12, p2: 12 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.DMM_OFFSET, Pro.COLOR.BLUE,   '11', 56, Pro.STEM.WIRED, { p1: 23.2, p2: 30.0 }, { p1: 12, p2: 12 }))
-
 // DMM Wales - Dragon
 PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.DMM_WALES, Pro.MODEL.DRAGON, Pro.COLOR.BLUE,   '00',  75, Pro.STEM.RIGID, { min:  14, max:  21 }, { active: 10, p1:  9 }))
 PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.DMM_WALES, Pro.MODEL.DRAGON, Pro.COLOR.SILVER, '0',   85, Pro.STEM.RIGID, { min:  16, max:  25 }, { active: 14, p1: 12 }))
@@ -436,6 +430,23 @@ PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.DMM_WALES, Pro.MODEL.DRAGONFLY, Pro.
 PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.DMM_WALES, Pro.MODEL.DRAGONFLY, Pro.COLOR.SILVER, '5', 70, Pro.STEM.FLEX, { min: 15.1, max: 22.5 }, { active: 9 }))
 PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.DMM_WALES, Pro.MODEL.DRAGONFLY, Pro.COLOR.PURPLE, '6', 73, Pro.STEM.FLEX, { min: 19.0, max: 28.3 }, { active: 9 }))
 
+// DMM Wales - Wallnuts
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.YELLOW,  '00',   5, Pro.STEM.WIRED, { p1:  4.0, p2:  9.7 }, { p1:  2, p2:  2 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.BLUE,    '0',    6, Pro.STEM.WIRED, { p1:  4.6, p2: 10.8 }, { p1:  2, p2:  2 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.RED,     '1/2',  9, Pro.STEM.WIRED, { p1:  5.1, p2: 11.7 }, { p1:  4, p2:  4 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.GRAY,    '3/4', 10, Pro.STEM.WIRED, { p1:  5.9, p2: 12.6 }, { p1:  6, p2:  6 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.PURPLE,  '1',   15, Pro.STEM.WIRED, { p1:  6.7, p2: 14.3 }, { p1:  7, p2:  7 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.GREEN,   '2',   26, Pro.STEM.WIRED, { p1:  8.1, p2: 15.8 }, { p1:  9, p2:  9 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.SILVER,  '3',   28, Pro.STEM.WIRED, { p1:  9.4, p2: 16.5 }, { p1: 11, p2: 11 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.YELLOW,  '4',   30, Pro.STEM.WIRED, { p1: 11.0, p2: 17.6 }, { p1: 12, p2: 12 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.BLUE,    '5',   32, Pro.STEM.WIRED, { p1: 13.2, p2: 19.4 }, { p1: 12, p2: 12 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.RED,     '6',   39, Pro.STEM.WIRED, { p1: 15.6, p2: 22.6 }, { p1: 12, p2: 12 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.GRAY,    '7',   40, Pro.STEM.WIRED, { p1: 18.9, p2: 25.8 }, { p1: 12, p2: 12 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.BLUE,    '8',   45, Pro.STEM.WIRED, { p1: 22.3, p2: 29.0 }, { p1: 12, p2: 12 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.YELLOW,  '9',   50, Pro.STEM.WIRED, { p1: 25.2, p2: 32.1 }, { p1: 12, p2: 12 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.SILVER, '10',   56, Pro.STEM.WIRED, { p1: 28.8, p2: 32.6 }, { p1: 12, p2: 12 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.GREEN,  '11',   68, Pro.STEM.WIRED, { p1: 33.1, p2: 37.4 }, { p1: 12, p2: 12 }))
+
 // DMM Wales - Halfnuts
 PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.HALFNUT, Pro.COLOR.PURPLE,  '1', 10, Pro.STEM.WIRED, { p1:  6.7, p2:  7.2 }, { p1: 4, p2: 4 }))
 PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.HALFNUT, Pro.COLOR.GREEN,   '2', 10, Pro.STEM.WIRED, { p1:  7.9, p2:  8.2 }, { p1: 4, p2: 4 }))
@@ -443,25 +454,41 @@ PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.HALFNUT, Pro.CO
 PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.HALFNUT, Pro.COLOR.YELLOW,  '4', 16, Pro.STEM.WIRED, { p1:  9.9, p2: 11.0 }, { p1: 6, p2: 6 }))
 PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.HALFNUT, Pro.COLOR.BLUE,    '5', 18, Pro.STEM.WIRED, { p1: 11.3, p2: 13.2 }, { p1: 6, p2: 6 }))
 PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.HALFNUT, Pro.COLOR.RED,     '6', 21, Pro.STEM.WIRED, { p1: 12.8, p2: 15.6 }, { p1: 6, p2: 6 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.HALFNUT, Pro.COLOR.SILVER,  '7', 22, Pro.STEM.WIRED, { p1: 14.3, p2: 18.9 }, { p1: 6, p2: 6 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.HALFNUT, Pro.COLOR.GRAY,    '7', 22, Pro.STEM.WIRED, { p1: 14.3, p2: 18.9 }, { p1: 6, p2: 6 }))
 PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.HALFNUT, Pro.COLOR.BLUE,    '8', 25, Pro.STEM.WIRED, { p1: 16.6, p2: 22.3 }, { p1: 7, p2: 7 }))
 PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.HALFNUT, Pro.COLOR.YELLOW,  '9', 28, Pro.STEM.WIRED, { p1: 18.7, p2: 25.2 }, { p1: 7, p2: 7 }))
 PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.HALFNUT, Pro.COLOR.SILVER, '10', 39, Pro.STEM.WIRED, { p1: 22.0, p2: 28.8 }, { p1: 9, p2: 9 }))
 PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.HALFNUT, Pro.COLOR.GREEN,  '11', 46, Pro.STEM.WIRED, { p1: 24.5, p2: 33.0 }, { p1: 9, p2: 9 }))
 
-// DMM Wales - IMP Brass Nuts
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.IMP_BRASS, Pro.COLOR.YELLOW, '1',  4, Pro.STEM.WIRED, { p1: 4.0, p2:  5.6 }, { p1: 4, p2: 4 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.IMP_BRASS, Pro.COLOR.YELLOW, '2',  8, Pro.STEM.WIRED, { p1: 4.8, p2:  6.4 }, { p1: 5, p2: 5 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.IMP_BRASS, Pro.COLOR.YELLOW, '3', 10, Pro.STEM.WIRED, { p1: 6.4, p2:  7.9 }, { p1: 5, p2: 5 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.IMP_BRASS, Pro.COLOR.YELLOW, '4', 13, Pro.STEM.WIRED, { p1: 7.9, p2:  9.5 }, { p1: 7, p2: 7 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.IMP_BRASS, Pro.COLOR.YELLOW, '5', 16, Pro.STEM.WIRED, { p1: 9.5, p2: 11.1 }, { p1: 7, p2: 7 }))
-
 // DMM Wales - Peenuts
 PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.PEENUT, Pro.COLOR.RED,    '1',  8, Pro.STEM.WIRED, { p1: 6.5, p2: 11.5 }, { p1: 4, p2: 4 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.PEENUT, Pro.COLOR.BLACK,  '2',  9, Pro.STEM.WIRED, { p1: 6.8, p2: 12.1 }, { p1: 5, p2: 5 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.PEENUT, Pro.COLOR.GRAY,   '2',  9, Pro.STEM.WIRED, { p1: 6.8, p2: 12.1 }, { p1: 5, p2: 5 }))
 PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.PEENUT, Pro.COLOR.PURPLE, '3', 10, Pro.STEM.WIRED, { p1: 7.8, p2: 12.7 }, { p1: 5, p2: 5 }))
 PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.PEENUT, Pro.COLOR.GREEN,  '4', 16, Pro.STEM.WIRED, { p1: 8.9, p2: 13.2 }, { p1: 8, p2: 8 }))
 PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.PEENUT, Pro.COLOR.SILVER, '5', 18, Pro.STEM.WIRED, { p1: 9.2, p2: 13.9 }, { p1: 8, p2: 8 }))
+
+// DMM Wales - Alloy Offset
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.DMM_OFFSET, Pro.COLOR.YELLOW,  '7', 27, Pro.STEM.WIRED, { p1: 12.0, p2: 15.1 }, { p1: 12, p2: 12 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.DMM_OFFSET, Pro.COLOR.BLUE,    '8', 30, Pro.STEM.WIRED, { p1: 13.5, p2: 17.9 }, { p1: 12, p2: 12 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.DMM_OFFSET, Pro.COLOR.RED,     '9', 37, Pro.STEM.WIRED, { p1: 17.1, p2: 21.4 }, { p1: 12, p2: 12 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.DMM_OFFSET, Pro.COLOR.GRAY,   '10', 45, Pro.STEM.WIRED, { p1: 19.4, p2: 25.1 }, { p1: 12, p2: 12 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.DMM_OFFSET, Pro.COLOR.BLUE,   '11', 56, Pro.STEM.WIRED, { p1: 23.2, p2: 30.0 }, { p1: 12, p2: 12 }))
+
+// DMM Wales - IMP Brass Nuts
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.IMP_BRASS, Pro.COLOR.BLUE,   '1',  4, Pro.STEM.WIRED, { p1: 4.0, p2:  5.6 }, { p1: 4, p2: 4 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.IMP_BRASS, Pro.COLOR.RED,    '2',  8, Pro.STEM.WIRED, { p1: 4.8, p2:  6.4 }, { p1: 5, p2: 5 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.IMP_BRASS, Pro.COLOR.SILVER, '3', 10, Pro.STEM.WIRED, { p1: 6.4, p2:  7.9 }, { p1: 5, p2: 5 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.IMP_BRASS, Pro.COLOR.PURPLE, '4', 13, Pro.STEM.WIRED, { p1: 7.9, p2:  9.5 }, { p1: 7, p2: 7 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.IMP_BRASS, Pro.COLOR.GREEN,  '5', 16, Pro.STEM.WIRED, { p1: 9.5, p2: 11.1 }, { p1: 7, p2: 7 }))
+
+// DMM Wales - Brass Offset
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.BRASS_OFFSET, Pro.COLOR.YELLOW, '0',  4, Pro.STEM.WIRED, { p1: 3.7, p2:  5.5 }, { p1:  2, p2:  2 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.BRASS_OFFSET, Pro.COLOR.BLUE,   '1',  7, Pro.STEM.WIRED, { p1: 4.3, p2:  6.5 }, { p1:  4, p2:  4 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.BRASS_OFFSET, Pro.COLOR.RED,    '2',  9, Pro.STEM.WIRED, { p1: 5.6, p2:  7.5 }, { p1:  5, p2:  5 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.BRASS_OFFSET, Pro.COLOR.GRAY,   '3', 10, Pro.STEM.WIRED, { p1: 6.0, p2:  8.5 }, { p1:  5, p2:  5 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.BRASS_OFFSET, Pro.COLOR.PURPLE, '4', 14, Pro.STEM.WIRED, { p1: 7.5, p2: 10.2 }, { p1:  7, p2:  7 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.BRASS_OFFSET, Pro.COLOR.GREEN,  '5', 17, Pro.STEM.WIRED, { p1: 8.6, p2: 11.7 }, { p1:  7, p2:  7 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.BRASS_OFFSET, Pro.COLOR.SILVER, '6', 24, Pro.STEM.WIRED, { p1: 9.8, p2: 13.9 }, { p1: 10, p2: 10 }))
 
 // DMM Wales - Torque Nuts
 PROLIB.push(new Pro(Pro.TYPE.HEX, Pro.BRAND.DMM_WALES, Pro.MODEL.TORQUE, Pro.COLOR.GREEN,  '1',  54, Pro.STEM.SLING, { p1: 31.0, p1_5: 36.0, p2: 41.0 }, { p1: 14, p2: 14 }))
@@ -475,23 +502,6 @@ PROLIB.push(new Pro(Pro.TYPE.HEX, Pro.BRAND.DMM_WALES, Pro.MODEL.TORQUE_WIRED, P
 PROLIB.push(new Pro(Pro.TYPE.HEX, Pro.BRAND.DMM_WALES, Pro.MODEL.TORQUE_WIRED, Pro.COLOR.YELLOW, '3', 114, Pro.STEM.WIRED, { p1: 44.0, p1_5: 51.5, p2: 59.0 }, { p1: 12, p2: 12 }))
 PROLIB.push(new Pro(Pro.TYPE.HEX, Pro.BRAND.DMM_WALES, Pro.MODEL.TORQUE_WIRED, Pro.COLOR.BLUE,   '4', 161, Pro.STEM.WIRED, { p1: 54.0, p1_5: 62.5, p2: 71.0 }, { p1: 12, p2: 12 }))
 
-// DMM Wales - Wallnuts
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.YELLOW,  '00',   5, Pro.STEM.WIRED, { p1:  4.0, p2:  9.7 }, { p1:  2, p2:  2 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.BLUE,    '0',    6, Pro.STEM.WIRED, { p1:  4.6, p2: 10.8 }, { p1:  2, p2:  2 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.RED,     '1/2',  9, Pro.STEM.WIRED, { p1:  5.1, p2: 11.7 }, { p1:  4, p2:  4 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.SILVER,  '3/4', 10, Pro.STEM.WIRED, { p1:  5.9, p2: 12.6 }, { p1:  6, p2:  6 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.PURPLE,  '1',   15, Pro.STEM.WIRED, { p1:  6.7, p2: 14.3 }, { p1:  7, p2:  7 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.GREEN,   '2',   26, Pro.STEM.WIRED, { p1:  8.1, p2: 15.8 }, { p1:  9, p2:  9 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.SILVER,  '3',   28, Pro.STEM.WIRED, { p1:  9.4, p2: 16.5 }, { p1: 11, p2: 11 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.YELLOW,  '4',   30, Pro.STEM.WIRED, { p1: 11.0, p2: 17.6 }, { p1: 12, p2: 12 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.BLUE,    '5',   32, Pro.STEM.WIRED, { p1: 13.2, p2: 19.4 }, { p1: 12, p2: 12 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.RED,     '6',   39, Pro.STEM.WIRED, { p1: 15.6, p2: 22.6 }, { p1: 12, p2: 12 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.SILVER,  '7',   40, Pro.STEM.WIRED, { p1: 18.9, p2: 25.8 }, { p1: 12, p2: 12 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.BLUE,    '8',   45, Pro.STEM.WIRED, { p1: 22.3, p2: 29.0 }, { p1: 12, p2: 12 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.YELLOW,  '9',   50, Pro.STEM.WIRED, { p1: 25.2, p2: 32.1 }, { p1: 12, p2: 12 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.SILVER, '10',   56, Pro.STEM.WIRED, { p1: 28.8, p2: 32.6 }, { p1: 12, p2: 12 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.DMM_WALES, Pro.MODEL.WALLNUT, Pro.COLOR.GREEN,  '11',   68, Pro.STEM.WIRED, { p1: 33.1, p2: 37.4 }, { p1: 12, p2: 12 }))
-
 /* FIXE ******************************************************************************************/
 
 // FIXE - Alien X
@@ -503,36 +513,6 @@ PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.FIXE, Pro.MODEL.ALIEN_X, Pro.COLOR.S
 PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.FIXE, Pro.MODEL.ALIEN_X, Pro.COLOR.RED,    '1',   70, Pro.STEM.FLEX, { min: 20.3, max: 33.4 }, { active: 10, p1:    5 }))
 
 /* METOLIUS **************************************************************************************/
-
-// Metolius - Astro Nut
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.ASTRO, Pro.COLOR.SILVER,  '1',  5.7, Pro.STEM.WIRED, { p1:  3.1, p2:  6.1 }, { p1: 1.4, p2: 1.4 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.ASTRO, Pro.COLOR.BLUE,    '2',  6.0, Pro.STEM.WIRED, { p1:  3.5, p2:  6.1 }, { p1: 1.4, p2: 1.4 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.ASTRO, Pro.COLOR.YELLOW,  '3',  6.2, Pro.STEM.WIRED, { p1:  4.1, p2:  6.1 }, { p1: 2.5, p2: 2.5 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.ASTRO, Pro.COLOR.RED,     '4',  6.5, Pro.STEM.WIRED, { p1:  4.6, p2:  6.5 }, { p1: 2.5, p2: 2.5 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.ASTRO, Pro.COLOR.BLACK,   '5',  7.0, Pro.STEM.WIRED, { p1:  5.3, p2:  7.4 }, { p1: 6,   p2: 6 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.ASTRO, Pro.COLOR.SILVER,  '6', 11.0, Pro.STEM.WIRED, { p1:  5.9, p2:  8.1 }, { p1: 6,   p2: 6 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.ASTRO, Pro.COLOR.BLUE,    '7', 13.9, Pro.STEM.WIRED, { p1:  6.9, p2:  9.4 }, { p1: 6,   p2: 6 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.ASTRO, Pro.COLOR.YELLOW,  '8', 16.2, Pro.STEM.WIRED, { p1:  8.1, p2: 10.6 }, { p1: 6,   p2: 6 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.ASTRO, Pro.COLOR.RED,     '9', 21.8, Pro.STEM.WIRED, { p1:  9.4, p2: 12.4 }, { p1: 8,   p2: 8 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.ASTRO, Pro.COLOR.BLACK,  '10', 26.9, Pro.STEM.WIRED, { p1: 10.6, p2: 13.9 }, { p1: 8,   p2: 8 }))
-
-// Metolius - Curve Nut
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.CURVE_NUT, Pro.COLOR.BLUE,    '1', 23, Pro.STEM.WIRED, { p1:  9.1, p2: 12.2 }, { p1:  7, p2:  7 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.CURVE_NUT, Pro.COLOR.YELLOW,  '2', 23, Pro.STEM.WIRED, { p1: 10.2, p2: 12.8 }, { p1:  7, p2:  7 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.CURVE_NUT, Pro.COLOR.ORANGE,  '3', 24, Pro.STEM.WIRED, { p1: 11.5, p2: 14.3 }, { p1:  7, p2:  7 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.CURVE_NUT, Pro.COLOR.RED,     '4', 26, Pro.STEM.WIRED, { p1: 12.9, p2: 16.1 }, { p1:  7, p2:  7 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.CURVE_NUT, Pro.COLOR.BLACK,   '5', 30, Pro.STEM.WIRED, { p1: 14.4, p2: 18.0 }, { p1:  7, p2:  7 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.CURVE_NUT, Pro.COLOR.GREEN,   '6', 31, Pro.STEM.WIRED, { p1: 16.1, p2: 20.1 }, { p1: 10, p2: 10 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.CURVE_NUT, Pro.COLOR.BLUE,    '7', 34, Pro.STEM.WIRED, { p1: 18.1, p2: 22.6 }, { p1: 10, p2: 10 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.CURVE_NUT, Pro.COLOR.PURPLE,  '8', 39, Pro.STEM.WIRED, { p1: 20.2, p2: 25.3 }, { p1: 10, p2: 10 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.CURVE_NUT, Pro.COLOR.RED,     '9', 46, Pro.STEM.WIRED, { p1: 22.6, p2: 28.3 }, { p1: 10, p2: 10 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.CURVE_NUT, Pro.COLOR.BLUE,   '10', 55, Pro.STEM.WIRED, { p1: 25.3, p2: 31.7 }, { p1: 10, p2: 10 }))
-
-// Metolius - Big Nut
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.BIG_NUT, Pro.COLOR.GREEN,  '1',  58, Pro.STEM.WIRED, { p1: 28.7, p2: 35.0 }, { p1: 10, p2: 10 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.BIG_NUT, Pro.COLOR.YELLOW, '2',  72, Pro.STEM.WIRED, { p1: 33.0, p2: 40.3 }, { p1: 10, p2: 10 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.BIG_NUT, Pro.COLOR.ORANGE, '3',  92, Pro.STEM.WIRED, { p1: 38.1, p2: 46.4 }, { p1: 10, p2: 10 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.BIG_NUT, Pro.COLOR.RED,    '4', 106, Pro.STEM.WIRED, { p1: 43.9, p2: 53.3 }, { p1: 10, p2: 10 }))
 
 // Metolius - Master Cam
 PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.METOLIUS, Pro.MODEL.MASTER_CAM, Pro.COLOR.SILVER, '00',  45, Pro.STEM.FLEX, { min:  8.5, max: 12.0 }, { active:  5 }))
@@ -577,8 +557,38 @@ PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.METOLIUS, Pro.MODEL.FAT_CAM, Pro.COL
 
 // Metolius - Supercam
 PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.METOLIUS, Pro.MODEL.SUPERCAM, Pro.COLOR.SILVER, 'S', 184, Pro.STEM.RIGID, { min: 42.0, max:  63.4 }, { active: 12 }))
-PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.METOLIUS, Pro.MODEL.SUPERCAM, Pro.COLOR.RED,    'M', 255, Pro.STEM.RIGID, { min: 52.5, max:  91.5 }, { active: 12 }))
+PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.METOLIUS, Pro.MODEL.SUPERCAM, Pro.COLOR.BROWN,  'M', 255, Pro.STEM.RIGID, { min: 52.5, max:  91.5 }, { active: 12 }))
 PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.METOLIUS, Pro.MODEL.SUPERCAM, Pro.COLOR.BLUE,   'L', 312, Pro.STEM.RIGID, { min: 66.5, max: 118.5 }, { active: 12 }))
+
+// Metolius - Astro Nut
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.ASTRO, Pro.COLOR.GRAY,    '1',  5.7, Pro.STEM.WIRED, { p1:  3.1, p2:  6.1 }, { p1: 1.4, p2: 1.4 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.ASTRO, Pro.COLOR.BLUE,    '2',  6.0, Pro.STEM.WIRED, { p1:  3.5, p2:  6.1 }, { p1: 1.4, p2: 1.4 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.ASTRO, Pro.COLOR.YELLOW,  '3',  6.2, Pro.STEM.WIRED, { p1:  4.1, p2:  6.1 }, { p1: 2.5, p2: 2.5 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.ASTRO, Pro.COLOR.RED,     '4',  6.5, Pro.STEM.WIRED, { p1:  4.6, p2:  6.5 }, { p1: 2.5, p2: 2.5 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.ASTRO, Pro.COLOR.BLACK,   '5',  7.0, Pro.STEM.WIRED, { p1:  5.3, p2:  7.4 }, { p1: 6,   p2: 6 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.ASTRO, Pro.COLOR.SILVER,  '6', 11.0, Pro.STEM.WIRED, { p1:  5.9, p2:  8.1 }, { p1: 6,   p2: 6 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.ASTRO, Pro.COLOR.BLUE,    '7', 13.9, Pro.STEM.WIRED, { p1:  6.9, p2:  9.4 }, { p1: 6,   p2: 6 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.ASTRO, Pro.COLOR.YELLOW,  '8', 16.2, Pro.STEM.WIRED, { p1:  8.1, p2: 10.6 }, { p1: 6,   p2: 6 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.ASTRO, Pro.COLOR.RED,     '9', 21.8, Pro.STEM.WIRED, { p1:  9.4, p2: 12.4 }, { p1: 8,   p2: 8 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.ASTRO, Pro.COLOR.BLACK,  '10', 26.9, Pro.STEM.WIRED, { p1: 10.6, p2: 13.9 }, { p1: 8,   p2: 8 }))
+
+// Metolius - Big Nut
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.BIG_NUT, Pro.COLOR.GREEN,  '1',  58, Pro.STEM.WIRED, { p1: 28.7, p2: 35.0 }, { p1: 10, p2: 10 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.BIG_NUT, Pro.COLOR.YELLOW, '2',  72, Pro.STEM.WIRED, { p1: 33.0, p2: 40.3 }, { p1: 10, p2: 10 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.BIG_NUT, Pro.COLOR.ORANGE, '3',  92, Pro.STEM.WIRED, { p1: 38.1, p2: 46.4 }, { p1: 10, p2: 10 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.BIG_NUT, Pro.COLOR.RED,    '4', 106, Pro.STEM.WIRED, { p1: 43.9, p2: 53.3 }, { p1: 10, p2: 10 }))
+
+// Metolius - Curve Nut
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.CURVE_NUT, Pro.COLOR.BLUE,    '1', 23, Pro.STEM.WIRED, { p1:  9.1, p2: 12.2 }, { p1:  7, p2:  7 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.CURVE_NUT, Pro.COLOR.YELLOW,  '2', 23, Pro.STEM.WIRED, { p1: 10.2, p2: 12.8 }, { p1:  7, p2:  7 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.CURVE_NUT, Pro.COLOR.ORANGE,  '3', 24, Pro.STEM.WIRED, { p1: 11.5, p2: 14.3 }, { p1:  7, p2:  7 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.CURVE_NUT, Pro.COLOR.RED,     '4', 26, Pro.STEM.WIRED, { p1: 12.9, p2: 16.1 }, { p1:  7, p2:  7 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.CURVE_NUT, Pro.COLOR.BLACK,   '5', 30, Pro.STEM.WIRED, { p1: 14.4, p2: 18.0 }, { p1:  7, p2:  7 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.CURVE_NUT, Pro.COLOR.GREEN,   '6', 31, Pro.STEM.WIRED, { p1: 16.1, p2: 20.1 }, { p1: 10, p2: 10 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.CURVE_NUT, Pro.COLOR.BLUE,    '7', 34, Pro.STEM.WIRED, { p1: 18.1, p2: 22.6 }, { p1: 10, p2: 10 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.CURVE_NUT, Pro.COLOR.PURPLE,  '8', 39, Pro.STEM.WIRED, { p1: 20.2, p2: 25.3 }, { p1: 10, p2: 10 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.CURVE_NUT, Pro.COLOR.RED,     '9', 46, Pro.STEM.WIRED, { p1: 22.6, p2: 28.3 }, { p1: 10, p2: 10 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.METOLIUS, Pro.MODEL.CURVE_NUT, Pro.COLOR.BLUE,   '10', 55, Pro.STEM.WIRED, { p1: 25.3, p2: 31.7 }, { p1: 10, p2: 10 }))
 
 /* TOTEM *****************************************************************************************/
 
@@ -592,6 +602,18 @@ PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.TOTEM, null, Pro.COLOR.RED,    '1.50
 PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.TOTEM, null, Pro.COLOR.ORANGE, '1.80', 144, Pro.STEM.FLEX, { min: 39.7, max: 64.2 }, { active: 13 }))
 
 /* TRANGO ****************************************************************************************/
+
+// Trango - Flex
+PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.TRANGO, Pro.MODEL.FLEX, Pro.COLOR.YELLOW,  '1',  58, Pro.STEM.RIGID, { min: 11, max:  17 }, { active:  7 }))
+PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.TRANGO, Pro.MODEL.FLEX, Pro.COLOR.BLUE,    '2',  60, Pro.STEM.RIGID, { min: 15, max:  21 }, { active:  7 }))
+PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.TRANGO, Pro.MODEL.FLEX, Pro.COLOR.SILVER,  '3',  73, Pro.STEM.RIGID, { min: 19, max:  27 }, { active: 10 }))
+PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.TRANGO, Pro.MODEL.FLEX, Pro.COLOR.PURPLE,  '4',  81, Pro.STEM.RIGID, { min: 24, max:  33 }, { active: 10 }))
+PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.TRANGO, Pro.MODEL.FLEX, Pro.COLOR.GREEN,   '5', 121, Pro.STEM.RIGID, { min: 27, max:  43 }, { active: 12 }))
+PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.TRANGO, Pro.MODEL.FLEX, Pro.COLOR.RED,     '6', 128, Pro.STEM.RIGID, { min: 34, max:  55 }, { active: 12 }))
+PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.TRANGO, Pro.MODEL.FLEX, Pro.COLOR.YELLOW,  '7', 148, Pro.STEM.RIGID, { min: 44, max:  68 }, { active: 12 }))
+PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.TRANGO, Pro.MODEL.FLEX, Pro.COLOR.BLUE,    '8', 182, Pro.STEM.RIGID, { min: 53, max:  86 }, { active: 12 }))
+PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.TRANGO, Pro.MODEL.FLEX, Pro.COLOR.SILVER,  '9', 233, Pro.STEM.RIGID, { min: 63, max: 107 }, { active: 12 }))
+PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.TRANGO, Pro.MODEL.FLEX, Pro.COLOR.PURPLE, '10', 332, Pro.STEM.RIGID, { min: 81, max: 134 }, { active: 12 }))
 
 // Trango - BallNutz
 PROLIB.push(new Pro(Pro.TYPE.BALL_NUT, Pro.BRAND.TRANGO, Pro.MODEL.BALLNUTZ, Pro.COLOR.BLUE,   '1', 31, Pro.STEM.FLEX, { min:  3.7, max:  6.4 }, { active: 7 }))
@@ -614,18 +636,6 @@ PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.TRANGO, Pro.MODEL.TRANGO_OFFSET, Pro
 PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.TRANGO, Pro.MODEL.TRANGO_OFFSET, Pro.COLOR.SILVER, '10', 40, Pro.STEM.WIRED, { p1: 14.0, p2: 26.0 }, { p1: 7, p2: 7 }))
 PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.TRANGO, Pro.MODEL.TRANGO_OFFSET, Pro.COLOR.PURPLE, '11', 50, Pro.STEM.WIRED, { p1: 17.5, p2: 30.0 }, { p1: 7, p2: 7 }))
 
-// Trango - Flex
-PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.TRANGO, Pro.MODEL.FLEX, Pro.COLOR.YELLOW,  '1',  58, Pro.STEM.RIGID, { min: 11, max:  17 }, { active:  7 }))
-PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.TRANGO, Pro.MODEL.FLEX, Pro.COLOR.BLUE,    '2',  60, Pro.STEM.RIGID, { min: 15, max:  21 }, { active:  7 }))
-PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.TRANGO, Pro.MODEL.FLEX, Pro.COLOR.SILVER,  '3',  73, Pro.STEM.RIGID, { min: 19, max:  27 }, { active: 10 }))
-PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.TRANGO, Pro.MODEL.FLEX, Pro.COLOR.PURPLE,  '4',  81, Pro.STEM.RIGID, { min: 24, max:  33 }, { active: 10 }))
-PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.TRANGO, Pro.MODEL.FLEX, Pro.COLOR.GREEN,   '5', 121, Pro.STEM.RIGID, { min: 27, max:  43 }, { active: 12 }))
-PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.TRANGO, Pro.MODEL.FLEX, Pro.COLOR.RED,     '6', 128, Pro.STEM.RIGID, { min: 34, max:  55 }, { active: 12 }))
-PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.TRANGO, Pro.MODEL.FLEX, Pro.COLOR.YELLOW,  '7', 148, Pro.STEM.RIGID, { min: 44, max:  68 }, { active: 12 }))
-PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.TRANGO, Pro.MODEL.FLEX, Pro.COLOR.BLUE,    '8', 182, Pro.STEM.RIGID, { min: 53, max:  86 }, { active: 12 }))
-PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.TRANGO, Pro.MODEL.FLEX, Pro.COLOR.SILVER,  '9', 233, Pro.STEM.RIGID, { min: 63, max: 107 }, { active: 12 }))
-PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.TRANGO, Pro.MODEL.FLEX, Pro.COLOR.PURPLE, '10', 332, Pro.STEM.RIGID, { min: 81, max: 134 }, { active: 12 }))
-
 /* WILD COUNTRY **********************************************************************************/
 
 // wild country - friend
@@ -637,25 +647,13 @@ PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.FRIEND, Pro.
 PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.FRIEND, Pro.COLOR.BLUE,   '3',   192, Pro.STEM.RIGID, { min: 52.7, max:  88.0 }, { active: 12, p1: 10 }))
 PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.FRIEND, Pro.COLOR.SILVER, '4',   260, Pro.STEM.RIGID, { min: 66.8, max: 112.1 }, { active: 12, p1: 10 }))
 
-// wild country - friend zero
+// wild country - friend Zero
 PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.FRIEND_ZERO, Pro.COLOR.RED,    '.1',  49, Pro.STEM.FLEX, { min:  8.5, max: 13.2 }, { active: 5 }))
 PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.FRIEND_ZERO, Pro.COLOR.YELLOW, '.2',  51, Pro.STEM.FLEX, { min: 10.4, max: 15.7 }, { active: 6 }))
 PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.FRIEND_ZERO, Pro.COLOR.BLUE,   '.3',  68, Pro.STEM.FLEX, { min: 13.8, max: 22.3 }, { active: 8 }))
 PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.FRIEND_ZERO, Pro.COLOR.SILVER, '.4',  70, Pro.STEM.FLEX, { min: 15.8, max: 25.9 }, { active: 9 }))
 PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.FRIEND_ZERO, Pro.COLOR.PURPLE, '.5',  76, Pro.STEM.FLEX, { min: 20.2, max: 32.9 }, { active: 9 }))
 PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.FRIEND_ZERO, Pro.COLOR.GREEN,  '.75', 81, Pro.STEM.FLEX, { min: 25.4, max: 40.1 }, { active: 9 }))
-
-// Wild Country - Rock Classic
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK_CLASSIC, Pro.COLOR.SILVER,  '1', 16, Pro.STEM.WIRED, { p1:  7.2, p2: 13   }, { p1:  6, p2:  6 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK_CLASSIC, Pro.COLOR.SILVER,  '2', 25, Pro.STEM.WIRED, { p1:  8.4, p2: 13.8 }, { p1: 10, p2: 10 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK_CLASSIC, Pro.COLOR.SILVER,  '3', 28, Pro.STEM.WIRED, { p1:  9.9, p2: 14.5 }, { p1: 10, p2: 10 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK_CLASSIC, Pro.COLOR.SILVER,  '4', 30, Pro.STEM.WIRED, { p1: 11.7, p2: 15.4 }, { p1: 10, p2: 10 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK_CLASSIC, Pro.COLOR.SILVER,  '5', 32, Pro.STEM.WIRED, { p1: 13.4, p2: 16.9 }, { p1: 10, p2: 10 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK_CLASSIC, Pro.COLOR.SILVER,  '6', 36, Pro.STEM.WIRED, { p1: 15.8, p2: 19.3 }, { p1: 10, p2: 10 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK_CLASSIC, Pro.COLOR.SILVER,  '7', 38, Pro.STEM.WIRED, { p1: 18.9, p2: 21   }, { p1: 10, p2: 10 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK_CLASSIC, Pro.COLOR.SILVER,  '8', 47, Pro.STEM.WIRED, { p1: 22.2, p2: 24   }, { p1: 12, p2: 12 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK_CLASSIC, Pro.COLOR.SILVER,  '9', 60, Pro.STEM.WIRED, { p1: 25,   p2: 27.5 }, { p1: 12, p2: 12 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK_CLASSIC, Pro.COLOR.SILVER, '10', 71, Pro.STEM.WIRED, { p1: 29.8, p2: 31   }, { p1: 12, p2: 12 }))
 
 // Wild Country - Rock
 PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK, Pro.COLOR.PURPLE,  '1',  16, Pro.STEM.WIRED, { p1:  7.2, p2: 13   }, { p1:  7, p2:  3 }))
@@ -673,6 +671,26 @@ PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK, Pro.CO
 PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK, Pro.COLOR.YELLOW, '13',  94, Pro.STEM.WIRED, { p1: 41,   p2: 44.5 }, { p1: 10, p2: 10 }))
 PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK, Pro.COLOR.BLUE,   '14', 109, Pro.STEM.WIRED, { p1: 45,   p2: 50.7 }, { p1: 10, p2: 10 }))
 
+// Wild Country - Rock Classic
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK_CLASSIC, Pro.COLOR.SILVER,  '1', 16, Pro.STEM.WIRED, { p1:  7.2, p2: 13   }, { p1:  6, p2:  6 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK_CLASSIC, Pro.COLOR.SILVER,  '2', 25, Pro.STEM.WIRED, { p1:  8.4, p2: 13.8 }, { p1: 10, p2: 10 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK_CLASSIC, Pro.COLOR.SILVER,  '3', 28, Pro.STEM.WIRED, { p1:  9.9, p2: 14.5 }, { p1: 10, p2: 10 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK_CLASSIC, Pro.COLOR.SILVER,  '4', 30, Pro.STEM.WIRED, { p1: 11.7, p2: 15.4 }, { p1: 10, p2: 10 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK_CLASSIC, Pro.COLOR.SILVER,  '5', 32, Pro.STEM.WIRED, { p1: 13.4, p2: 16.9 }, { p1: 10, p2: 10 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK_CLASSIC, Pro.COLOR.SILVER,  '6', 36, Pro.STEM.WIRED, { p1: 15.8, p2: 19.3 }, { p1: 10, p2: 10 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK_CLASSIC, Pro.COLOR.SILVER,  '7', 38, Pro.STEM.WIRED, { p1: 18.9, p2: 21   }, { p1: 10, p2: 10 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK_CLASSIC, Pro.COLOR.SILVER,  '8', 47, Pro.STEM.WIRED, { p1: 22.2, p2: 24   }, { p1: 12, p2: 12 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK_CLASSIC, Pro.COLOR.SILVER,  '9', 60, Pro.STEM.WIRED, { p1: 25,   p2: 27.5 }, { p1: 12, p2: 12 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK_CLASSIC, Pro.COLOR.SILVER, '10', 71, Pro.STEM.WIRED, { p1: 29.8, p2: 31   }, { p1: 12, p2: 12 }))
+
+// Wild Country - Rock Offset
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK_OFFSET, Pro.COLOR.BLUE,    '5', 20, Pro.STEM.WIRED, { p1: 12.5, p2: 13.4 }, { p1: 7, p2: 7 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK_OFFSET, Pro.COLOR.RED,     '6', 23, Pro.STEM.WIRED, { p1: 14.3, p2: 15.8 }, { p1: 7, p2: 7 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK_OFFSET, Pro.COLOR.SILVER,  '7', 23, Pro.STEM.WIRED, { p1: 15.6, p2: 18.8 }, { p1: 7, p2: 7 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK_OFFSET, Pro.COLOR.BLUE,    '8', 26, Pro.STEM.WIRED, { p1: 17.9, p2: 22   }, { p1: 7, p2: 7 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK_OFFSET, Pro.COLOR.YELLOW,  '9', 30, Pro.STEM.WIRED, { p1: 20.5, p2: 25   }, { p1: 7, p2: 7 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK_OFFSET, Pro.COLOR.SILVER, '10', 46, Pro.STEM.WIRED, { p1: 22.7, p2: 30   }, { p1: 9, p2: 9 }))
+
 // Wild Country - Rockcentric
 PROLIB.push(new Pro(Pro.TYPE.HEX, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCKCENTRIC, Pro.COLOR.YELLOW, '3',  34, Pro.STEM.SLING, { p1: 24,   p1_5: 25.5, p2: 31   }, { p1: 14, p2: 14 }))
 PROLIB.push(new Pro(Pro.TYPE.HEX, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCKCENTRIC, Pro.COLOR.SILVER, '4',  43, Pro.STEM.SLING, { p1: 28.3, p1_5: 30,   p2: 36   }, { p1: 14, p2: 14 }))
@@ -681,14 +699,6 @@ PROLIB.push(new Pro(Pro.TYPE.HEX, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCKCENTRIC,
 PROLIB.push(new Pro(Pro.TYPE.HEX, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCKCENTRIC, Pro.COLOR.YELLOW, '7',  91, Pro.STEM.SLING, { p1: 45,   p1_5: 48,   p2: 55.5 }, { p1: 14, p2: 14 }))
 PROLIB.push(new Pro(Pro.TYPE.HEX, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCKCENTRIC, Pro.COLOR.BLUE,   '8', 118, Pro.STEM.SLING, { p1: 52.7, p1_5: 56.2, p2: 64.5 }, { p1: 14, p2: 14 }))
 PROLIB.push(new Pro(Pro.TYPE.HEX, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCKCENTRIC, Pro.COLOR.PURPLE, '9', 156, Pro.STEM.SLING, { p1: 60.9, p1_5: 65.4, p2: 73.5 }, { p1: 14, p2: 14 }))
-
-// Wild Country - Offset Rock
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK_OFFSET, Pro.COLOR.BLUE,    '5', 20, Pro.STEM.WIRED, { p1: 12.5, p2: 13.4 }, { p1: 7, p2: 7 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK_OFFSET, Pro.COLOR.RED,     '6', 23, Pro.STEM.WIRED, { p1: 14.3, p2: 15.8 }, { p1: 7, p2: 7 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK_OFFSET, Pro.COLOR.SILVER,  '7', 23, Pro.STEM.WIRED, { p1: 15.6, p2: 18.8 }, { p1: 7, p2: 7 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK_OFFSET, Pro.COLOR.BLUE,    '8', 26, Pro.STEM.WIRED, { p1: 17.9, p2: 22   }, { p1: 7, p2: 7 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK_OFFSET, Pro.COLOR.YELLOW,  '9', 30, Pro.STEM.WIRED, { p1: 20.5, p2: 25   }, { p1: 7, p2: 7 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.WILD_COUNTRY, Pro.MODEL.ROCK_OFFSET, Pro.COLOR.SILVER, '10', 46, Pro.STEM.WIRED, { p1: 22.7, p2: 30   }, { p1: 9, p2: 9 }))
 
 /* eslint-enable key-spacing */
 /* eslint-enable no-multi-spaces */
@@ -1317,7 +1327,7 @@ class ProChart { // eslint-disable-line no-unused-vars
               color: (context) => {
                 if (this.#proList.length === 0) return ProChart.COLOR.TEXT.LIGHT
                 const pro = this.#proList[context.dataIndex]
-                if (pro.color === Pro.COLOR.BLACK) return ProChart.COLOR.TEXT.LIGHT
+                if ([Pro.COLOR.BLACK, Pro.COLOR.GRAY, Pro.COLOR.BROWN].includes(pro.color)) return ProChart.COLOR.TEXT.LIGHT
                 else return ProChart.COLOR.TEXT.DARK
               },
               font: {
@@ -1379,7 +1389,7 @@ class ProChart { // eslint-disable-line no-unused-vars
               color: (context) => {
                 if (this.#proList.length === 0) return ProChart.COLOR.TEXT.LIGHT
                 const pro = this.#proList[context.dataIndex]
-                if (pro.color === Pro.COLOR.BLACK) return ProChart.COLOR.TEXT.LIGHT
+                if ([Pro.COLOR.BLACK, Pro.COLOR.GRAY, Pro.COLOR.BROWN].includes(pro.color)) return ProChart.COLOR.TEXT.LIGHT
                 else return ProChart.COLOR.TEXT.DARK
               },
               font: {
