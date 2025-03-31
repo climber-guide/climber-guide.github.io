@@ -1,5 +1,5 @@
 /*************************************************************************************************
- * pro.js v1.1.0                                                                                 *
+ * pro.js v1.2.0                                                                                 *
  * (c) 2025 Grant Freeman                                                                        *
  * License GPL 3.0                                                                               *
  *************************************************************************************************/
@@ -91,6 +91,7 @@ class Pro {
     HEXENTRIC: new ProModel('Hexentric', 'Hex', true),
     MICRO_STOPPER: new ProModel('Micro Stopper', 'MStop', true),
     STOPPER: new ProModel('Stopper', 'Stop', true),
+    OFFSET_STOPPER: new ProModel('Offset Stopper', 'Offset', true),
     // CAMP
     TRICAM: new ProModel('Tricam', null, true),
     TRICAM_DYNEEMA: new ProModel('Tricam Dyneema', 'Tricam Dyn', true),
@@ -288,12 +289,12 @@ const PROLIB = []
 
 /* BLACK DIAMOND *********************************************************************************/
 
-// // Black Diamond - Camalot C3
-// PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.CAMALOT_C3, Pro.COLOR.SILVER, '000', 56, Pro.STEM.RIGID, { min:  7.8, max: 12.9 }, { active:  4 }))
-// PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.CAMALOT_C3, Pro.COLOR.PURPLE, '00',  58, Pro.STEM.RIGID, { min:  8.9, max: 13.7 }, { active:  6 }))
-// PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.CAMALOT_C3, Pro.COLOR.GREEN,  '0',   59, Pro.STEM.RIGID, { min: 10.2, max: 15.8 }, { active:  7 }))
-// PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.CAMALOT_C3, Pro.COLOR.RED,    '1',   64, Pro.STEM.RIGID, { min: 12.0, max: 18.8 }, { active: 10 }))
-// PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.CAMALOT_C3, Pro.COLOR.YELLOW, '2',   66, Pro.STEM.RIGID, { min: 14.2, max: 22.6 }, { active: 10 }))
+// Black Diamond - Camalot C3
+PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.CAMALOT_C3, Pro.COLOR.SILVER, '000', 56, Pro.STEM.RIGID, { min:  7.8, max: 12.9 }, { active:  4 }))
+PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.CAMALOT_C3, Pro.COLOR.PURPLE, '00',  58, Pro.STEM.RIGID, { min:  8.9, max: 13.7 }, { active:  6 }))
+PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.CAMALOT_C3, Pro.COLOR.GREEN,  '0',   59, Pro.STEM.RIGID, { min: 10.2, max: 15.8 }, { active:  7 }))
+PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.CAMALOT_C3, Pro.COLOR.RED,    '1',   64, Pro.STEM.RIGID, { min: 12.0, max: 18.8 }, { active: 10 }))
+PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.CAMALOT_C3, Pro.COLOR.YELLOW, '2',   66, Pro.STEM.RIGID, { min: 14.2, max: 22.6 }, { active: 10 }))
 
 // Black Diamond - Camalot C4
 PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.CAMALOT_C4, Pro.COLOR.BLUE,   '.3',   70, Pro.STEM.RIGID, { min:  13.8, max:  23.4 }, { active:  8, p1:  8 }))
@@ -370,6 +371,13 @@ PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.MICRO_STOPP
 PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.MICRO_STOPPER, Pro.COLOR.SILVER, '4', 13, Pro.STEM.WIRED, { p1: 5.9, p2:  8.4 }, { p1: 6, p2: 6 }))
 PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.MICRO_STOPPER, Pro.COLOR.SILVER, '5', 15, Pro.STEM.WIRED, { p1: 7.4, p2:  9.4 }, { p1: 6, p2: 6 }))
 PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.MICRO_STOPPER, Pro.COLOR.SILVER, '6', 21, Pro.STEM.WIRED, { p1: 8.8, p2: 10.4 }, { p1: 8, p2: 8 }))
+
+// Black Diamond - Offset Stoppers
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.OFFSET_STOPPER, Pro.COLOR.RED,     '7', 27, Pro.STEM.WIRED, { p1: 12.0, p2: 15.1 }, { p1: 12, p2: 12 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.OFFSET_STOPPER, Pro.COLOR.YELLOW,  '8', 30, Pro.STEM.WIRED, { p1: 13.5, p2: 17.9 }, { p1: 12, p2: 12 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.OFFSET_STOPPER, Pro.COLOR.BLUE,    '9', 37, Pro.STEM.WIRED, { p1: 17.1, p2: 21.4 }, { p1: 12, p2: 12 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.OFFSET_STOPPER, Pro.COLOR.GRAY,   '10', 45, Pro.STEM.WIRED, { p1: 19.4, p2: 25.1 }, { p1: 12, p2: 12 }))
+PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.OFFSET_STOPPER, Pro.COLOR.PURPLE, '11', 56, Pro.STEM.WIRED, { p1: 23.2, p2: 30.0 }, { p1: 12, p2: 12 }))
 
 /* CAMP ******************************************************************************************/
 
@@ -616,11 +624,12 @@ PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.TRANGO, Pro.MODEL.FLEX, Pro.COLOR.SI
 PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.TRANGO, Pro.MODEL.FLEX, Pro.COLOR.PURPLE, '10', 332, Pro.STEM.RIGID, { min: 81, max: 134 }, { active: 12 }))
 
 // Trango - BallNutz
-PROLIB.push(new Pro(Pro.TYPE.BALL_NUT, Pro.BRAND.TRANGO, Pro.MODEL.BALLNUTZ, Pro.COLOR.BLUE,   '1', 31, Pro.STEM.FLEX, { min:  3.7, max:  6.4 }, { active: 7 }))
-PROLIB.push(new Pro(Pro.TYPE.BALL_NUT, Pro.BRAND.TRANGO, Pro.MODEL.BALLNUTZ, Pro.COLOR.RED,    '2', 39, Pro.STEM.FLEX, { min:  4.8, max:  9.0 }, { active: 8 }))
-PROLIB.push(new Pro(Pro.TYPE.BALL_NUT, Pro.BRAND.TRANGO, Pro.MODEL.BALLNUTZ, Pro.COLOR.YELLOW, '3', 49, Pro.STEM.FLEX, { min:  6.1, max: 11.6 }, { active: 8 }))
-PROLIB.push(new Pro(Pro.TYPE.BALL_NUT, Pro.BRAND.TRANGO, Pro.MODEL.BALLNUTZ, Pro.COLOR.GREEN,  '4', 58, Pro.STEM.FLEX, { min:  7.8, max: 13.8 }, { active: 8 }))
-PROLIB.push(new Pro(Pro.TYPE.BALL_NUT, Pro.BRAND.TRANGO, Pro.MODEL.BALLNUTZ, Pro.COLOR.PURPLE, '5', 73, Pro.STEM.FLEX, { min: 10.3, max: 17.5 }, { active: 8 }))
+// measurement should be the same as camp, but they differ. Assuming this one is off...
+// PROLIB.push(new Pro(Pro.TYPE.BALL_NUT, Pro.BRAND.TRANGO, Pro.MODEL.BALLNUTZ, Pro.COLOR.BLUE,   '1', 31, Pro.STEM.FLEX, { min:  3.7, max:  6.4 }, { active: 7 }))
+// PROLIB.push(new Pro(Pro.TYPE.BALL_NUT, Pro.BRAND.TRANGO, Pro.MODEL.BALLNUTZ, Pro.COLOR.RED,    '2', 39, Pro.STEM.FLEX, { min:  4.8, max:  9.0 }, { active: 8 }))
+// PROLIB.push(new Pro(Pro.TYPE.BALL_NUT, Pro.BRAND.TRANGO, Pro.MODEL.BALLNUTZ, Pro.COLOR.YELLOW, '3', 49, Pro.STEM.FLEX, { min:  6.1, max: 11.6 }, { active: 8 }))
+// PROLIB.push(new Pro(Pro.TYPE.BALL_NUT, Pro.BRAND.TRANGO, Pro.MODEL.BALLNUTZ, Pro.COLOR.GREEN,  '4', 58, Pro.STEM.FLEX, { min:  7.8, max: 13.8 }, { active: 8 }))
+// PROLIB.push(new Pro(Pro.TYPE.BALL_NUT, Pro.BRAND.TRANGO, Pro.MODEL.BALLNUTZ, Pro.COLOR.PURPLE, '5', 73, Pro.STEM.FLEX, { min: 10.3, max: 17.5 }, { active: 8 }))
 
 // Trango - Big Bro
 PROLIB.push(new Pro(Pro.TYPE.BIG_BRO, Pro.BRAND.TRANGO, Pro.MODEL.BIG_BRO_2, Pro.COLOR.RED,    '1', 154, Pro.STEM.RIGID, { min:  81, max: 109 }, { active: 12, p1: 12 }))
@@ -630,11 +639,12 @@ PROLIB.push(new Pro(Pro.TYPE.BIG_BRO, Pro.BRAND.TRANGO, Pro.MODEL.BIG_BRO_2, Pro
 PROLIB.push(new Pro(Pro.TYPE.BIG_BRO, Pro.BRAND.TRANGO, Pro.MODEL.BIG_BRO_2, Pro.COLOR.WHITE,  '5', 578, Pro.STEM.RIGID, { min: 287, max: 467 }, { active: 12, p1: 12 }))
 
 // Trango - Offset Nuts
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.TRANGO, Pro.MODEL.TRANGO_OFFSET, Pro.COLOR.RED,     '7', 28, Pro.STEM.WIRED, { p1:  9.4, p2: 15.0 }, { p1: 7, p2: 7 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.TRANGO, Pro.MODEL.TRANGO_OFFSET, Pro.COLOR.YELLOW,  '8', 30, Pro.STEM.WIRED, { p1: 10.2, p2: 18.8 }, { p1: 7, p2: 7 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.TRANGO, Pro.MODEL.TRANGO_OFFSET, Pro.COLOR.BLUE,    '9', 35, Pro.STEM.WIRED, { p1: 12.5, p2: 21.8 }, { p1: 7, p2: 7 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.TRANGO, Pro.MODEL.TRANGO_OFFSET, Pro.COLOR.SILVER, '10', 40, Pro.STEM.WIRED, { p1: 14.0, p2: 26.0 }, { p1: 7, p2: 7 }))
-PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.TRANGO, Pro.MODEL.TRANGO_OFFSET, Pro.COLOR.PURPLE, '11', 50, Pro.STEM.WIRED, { p1: 17.5, p2: 30.0 }, { p1: 7, p2: 7 }))
+// does not measure the widest point for the thinner side
+// PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.TRANGO, Pro.MODEL.TRANGO_OFFSET, Pro.COLOR.RED,     '7', 28, Pro.STEM.WIRED, { p1:  9.4, p2: 15.0 }, { p1: 7, p2: 7 }))
+// PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.TRANGO, Pro.MODEL.TRANGO_OFFSET, Pro.COLOR.YELLOW,  '8', 30, Pro.STEM.WIRED, { p1: 10.2, p2: 18.8 }, { p1: 7, p2: 7 }))
+// PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.TRANGO, Pro.MODEL.TRANGO_OFFSET, Pro.COLOR.BLUE,    '9', 35, Pro.STEM.WIRED, { p1: 12.5, p2: 21.8 }, { p1: 7, p2: 7 }))
+// PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.TRANGO, Pro.MODEL.TRANGO_OFFSET, Pro.COLOR.SILVER, '10', 40, Pro.STEM.WIRED, { p1: 14.0, p2: 26.0 }, { p1: 7, p2: 7 }))
+// PROLIB.push(new Pro(Pro.TYPE.NUT, Pro.BRAND.TRANGO, Pro.MODEL.TRANGO_OFFSET, Pro.COLOR.PURPLE, '11', 50, Pro.STEM.WIRED, { p1: 17.5, p2: 30.0 }, { p1: 7, p2: 7 }))
 
 /* WILD COUNTRY **********************************************************************************/
 
