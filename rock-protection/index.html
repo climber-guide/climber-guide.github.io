@@ -9,14 +9,52 @@
   <script src="/js/chart.js?v=4.4.8"></script>
   <script src="/js/chartjs-plugin-datalabels.js?v=2.2.0"></script>
   <script src="/js/dual-range-input.js?v=1.0.0"></script>
-  <script src="/js/pro.js?v=1.2.0"></script>
+  <script src="/js/pro.js?v=1.3.0"></script>
 </head>
 <body class="container">
   <div class="row center">
     <h1>Rock Protection</h1>
   </div>
-  <section id="pro-chart">
-    <section id="pro-chart-container"></section>
+  <section id="pro-chart-container"></section>
+  <section>
+    <h3 class="center">Appendix</h3>
+    <section>
+      <h5>Expansion vs Operation Range</h5>
+      <p>
+        The majority of cam manufacturers will show consumers the expansion range of a cam.
+        This however does not translate the the usable range of the cam.
+        On the outer ends of the expansion range you risk either welding the cam or leaving it tipped-out; which is prone to walking, a lower friction coefficient, and failure in special cases.
+        The usable range of a cam is referred to as the operation range, removes 10% from the minimum and 25% from the maximum ends of the expansion range.
+        The percentage reduction for each type of gear is as follows:
+      </p>
+      <ul>
+        <li>Ball Nut: 25%/25%</li>
+        <li>Big Bro: 10%/None</li>
+        <li>Cam/Friend: 10%/25%</li>
+        <li>Tricam: 10%/25%</li>
+      </ul>
+      
+      <h5>Hexes and Nuts</h5>
+      <div >
+        <div >
+          <p>
+            Passive protection is measured from the widest point. Take this into account when comparing to active protection and remember some nuts taper more than others.
+            Nuts are made up of two possible positions (P1, P2), while hexes can have three (P1, P1.5, P2).
+          </p>
+        </div>
+        <img src="hex-and-nut.png" style="border: 1px solid #41444B">
+      </div>
+      <h5>Strength</h5>
+      <p>
+        For passive protection if P1, P1.5 and P2 have the same strength rating then a single rating will be present the the right of P2 data point.
+        Otherwise P1 or P1.5 will have it's own strength value to it's immediate right (take a look at black diamond stoppers for example).
+      </p>
+      <p>
+        Active gear will use a slash rating as such: [active_kn]/[passive_kn].
+        If the protection is not capable of a passive position, an 'X' will be used.
+        If active and passive are the same rating, a single value is shown.
+      </p>
+    </section>
   </section>
   <script src="index.js?v=1.0.0"></script>
 </body>
