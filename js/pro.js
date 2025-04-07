@@ -1,5 +1,5 @@
 /*************************************************************************************************
- * pro.js v1.3.1                                                                                 *
+ * pro.js v1.3.2                                                                                 *
  * (c) 2025 Grant Freeman                                                                        *
  * License GPL 3.0                                                                               *
  *************************************************************************************************/
@@ -320,12 +320,12 @@ PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.CAMALOT_ULT
 PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.CAMALOT_ULTRALIGHT, Pro.COLOR.SILVER, '4',   225, Pro.STEM.RIGID, { min:  66.0, max: 114.7 }, { active: 12, p1: 12 }))
 
 // Black Diamond - Camalot X4
-PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.CAMALOT_X4, Pro.COLOR.RED,    '.1',   51, Pro.STEM.FLEX, { min:  8.4, max: 13.8 }, { active:  5 }))
-PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.CAMALOT_X4, Pro.COLOR.YELLOW, '.2',   54, Pro.STEM.FLEX, { min:  9.9, max: 16.5 }, { active:  6 }))
-PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.CAMALOT_X4, Pro.COLOR.BLUE,   '.3',   75, Pro.STEM.FLEX, { min: 12.4, max: 21.2 }, { active:  8 }))
-PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.CAMALOT_X4, Pro.COLOR.SILVER, '.4',   82, Pro.STEM.FLEX, { min: 15.5, max: 26.6 }, { active: 10 }))
-PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.CAMALOT_X4, Pro.COLOR.PURPLE, '.5',   91, Pro.STEM.FLEX, { min: 19.8, max: 33.7 }, { active: 10 }))
-PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.CAMALOT_X4, Pro.COLOR.GREEN,  '.75', 112, Pro.STEM.FLEX, { min: 24.0, max: 41.2 }, { active: 10 }))
+PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.CAMALOT_X4, Pro.COLOR.RED,    '.1',   51, Pro.STEM.FLEX, { min:  8.4, max: 13.8 }, { active: 5, p1: null }))
+PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.CAMALOT_X4, Pro.COLOR.YELLOW, '.2',   54, Pro.STEM.FLEX, { min:  9.9, max: 16.5 }, { active: 6, p1: null }))
+PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.CAMALOT_X4, Pro.COLOR.BLUE,   '.3',   75, Pro.STEM.FLEX, { min: 12.4, max: 21.2 }, { active: 8, p1: null }))
+PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.CAMALOT_X4, Pro.COLOR.SILVER, '.4',   82, Pro.STEM.FLEX, { min: 15.5, max: 26.7 }, { active: 9, p1:    9 }))
+PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.CAMALOT_X4, Pro.COLOR.PURPLE, '.5',   91, Pro.STEM.FLEX, { min: 19.6, max: 33.5 }, { active: 9, p1:    9 }))
+PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.CAMALOT_X4, Pro.COLOR.GREEN,  '.75', 112, Pro.STEM.FLEX, { min: 23.9, max: 41.2 }, { active: 9, p1:    9 }))
 
 // Black Diamond - Camalot Z4
 PROLIB.push(new Pro(Pro.TYPE.CAM, Pro.BRAND.BLACK_DIAMOND, Pro.MODEL.CAMALOT_Z4, Pro.COLOR.GREEN,  '0',   43, Pro.STEM.FLEX, { min:  7.5, max: 11.8 }, { active:  5, p1: null }))
