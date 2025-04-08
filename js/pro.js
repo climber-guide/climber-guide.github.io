@@ -1,5 +1,5 @@
 /*************************************************************************************************
- * pro.js v1.3.2                                                                                 *
+ * pro.js v1.3.3                                                                                 *
  * (c) 2025 Grant Freeman                                                                        *
  * License GPL 3.0                                                                               *
  *************************************************************************************************/
@@ -113,12 +113,12 @@ class Pro {
     // Metolius
     ASTRO: new ProModel('Astro Nut', 'Astro', true),
     BIG_NUT: new ProModel('Big Nut', 'Big', true),
-    CURVE_NUT: new ProModel('Curve Nut', 'Curve', true),
-    FAT_CAM: new ProModel('Fat Cam', 'FC', true),
-    MASTER_CAM: new ProModel('Master Cam', 'MC', true),
-    POWER_CAM: new ProModel('Power Cam', 'PC', true),
+    CURVE_NUT: new ProModel('UL Curve Nut', 'Curve', true),
+    FAT_CAM: new ProModel('UL Fat Cam', 'FC', true),
+    MASTER_CAM: new ProModel('UL Master Cam', 'MC', true),
+    POWER_CAM: new ProModel('UL Power Cam', 'PC', true),
     SUPERCAM: new ProModel('Supercam', 'SC', true),
-    TCU: new ProModel('TCU', null, true),
+    TCU: new ProModel('UL TCU', null, true),
     // Trango
     BALLNUTZ: new ProModel('BallNutz', null, true),
     BIG_BRO_2: new ProModel('Big Bro 2.0', null, true),
