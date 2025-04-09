@@ -1,5 +1,5 @@
 /******************************************************************************
- * pro.css v1.1.0
+ * pro.css v1.1.1
  * (c) 2025, Grant Freeman
  * GPL 3.0 License
 ******************************************************************************/
@@ -96,7 +96,8 @@ input.strength::-moz-range-thumb {
   width: 2rem;
   height: 2rem;
   background: var(--BLACK);
-  border-radius: 1rem;
+  border: none;
+  border-radius: 2rem;
   cursor: pointer;
 }
 
