@@ -1,5 +1,5 @@
 /*************************************************************************************************
- * pro.js v1.3.3                                                                                 *
+ * pro.js v1.3.4                                                                                 *
  * (c) 2025 Grant Freeman                                                                        *
  * License GPL 3.0                                                                               *
  *************************************************************************************************/
@@ -847,6 +847,11 @@ class ProChart { // eslint-disable-line no-unused-vars
     // initialize chart
     this.chart = new Chart(canvas, { type: 'bar' })
     this.#refreshChart()
+
+    // track window resize
+    window.matchMedia('(orientation: portrait)').addEventListener('change', (event) => {
+      this.#refreshChart()
+    })
   }
 
   #deployFilters () {
@@ -1198,6 +1203,12 @@ class ProChart { // eslint-disable-line no-unused-vars
       return pro.weight
     })
 
+    // add extra padding on left side of chart for mobile
+    let minPadding = null
+    if (window.matchMedia('(max-width: 550px)').matches) minPadding = 0.42
+    else if (window.matchMedia('(max-width: 1000px)').matches) minPadding = 0.24
+    else minPadding = 0.16
+
     this.chart.data.labels = dataLabels
     this.chart.data.datasets = [
       {
@@ -1485,7 +1496,7 @@ class ProChart { // eslint-disable-line no-unused-vars
     this.chart.options.scales.x = {
       alignToPixels: true,
       position: 'top',
-      min: this.#chartScale(Pro.RANGE, 0.16).min,
+      min: this.#chartScale(Pro.RANGE, minPadding).min,
       max: this.#chartScale(Pro.RANGE, 0.32).max,
       grid: {
         color: Pro.COLOR.BLUE + '90'

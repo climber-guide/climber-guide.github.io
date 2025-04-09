@@ -9,7 +9,7 @@
   <script src="/js/chart.js?v=4.4.8"></script>
   <script src="/js/chartjs-plugin-datalabels.js?v=2.2.0"></script>
   <script src="/js/dual-range-input.js?v=1.0.0"></script>
-  <script src="/js/pro.js?v=1.3.3"></script>
+  <script src="/js/pro.js?v=1.3.4"></script>
 </head>
 <body class="container">
   <div class="row center">
@@ -22,17 +22,40 @@
       <h5>Expansion vs Operation Range</h5>
       <p>
         The majority of cam manufacturers will show consumers the expansion range of a cam.
-        This however does not translate the the usable range of the cam.
+        This however does not translate the the functional range.
         On the outer ends of the expansion range you risk either welding the cam or leaving it tipped-out; which is prone to walking, a lower friction coefficient, and failure in special cases.
-        The usable range of a cam is referred to as the operation range, this removes 10% from the minimum and 25% from the maximum ends of the expansion range.
-        The percentage reduction for each type of gear is as follows:
+        Therefore I show the operation range by default, which removes a percentage from the min and max range.
+        Per manufacturers, the percentage reduction for each type of gear is as follows:
       </p>
-      <ul>
-        <li>Ball Nut: 25%/25%</li>
-        <li>Big Bro: 10%/None</li>
-        <li>Cam/Friend: 10%/25%</li>
-        <li>Tricam: 10%/25%</li>
-      </ul>
+      <table class="center" style="width: 100%;">
+        <tr>
+          <th>Pro</th>
+          <th>Min Range Reduction (%)</th>
+          <th>Max Range Reduction (%)</th>
+        </tr>
+        <tr>
+          <td>Ball Nut</td>
+          <td>25%</td>
+          <td>25%</td>
+        </tr>
+        <tr>
+          <td>Big Bro</td>
+          <td>10%</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Cam / Friend</td>
+          <td>10%</td>
+          <td>25%</td>
+        </tr>
+        <tr>
+          <td>Tricam</td>
+          <td>10%</td>
+          <td>25%</td>
+        </tr>
+      </table>
+      <br>
+      <p class="center">Click on the legend item 'Operation (mm)' to see switch between operation and expansion.</p>
       <section id="expansion-vs-operation"></section>
       <h5>Hexes and Nuts</h5>
       <p>
@@ -47,13 +70,10 @@
       <section id="hex-and-nut"></section>
       <h5>Strength</h5>
       <p>
-        For passive protection if P1 and P2 have the same strength rating then a single rating will be present on the far right.
-        Otherwise P1 will have it's own strength value to it's immediate right (take a look at black diamond stoppers for example).
+        Passive protection: the strength rating will be the number on the far right side (see the 12kn for DMM Offset 7). If P1 and P2 have different strength ratings, it will be specified (see BD Stopper 7: 10kn in P1 but it drops to 6kn on P2).
       </p>
       <p>
-        Active gear will use a slash rating as such: [active_kn]/[passive_kn].
-        If the protection is not capable of a passive position, an 'X' will be used.
-        If active and passive are the same rating, a single value is shown.
+        Active gear will use a slash rating to denote if the active rating differs from the passive rating: [active kn]/[passive kn] (see DMM Dragon 00: 10kn active and 9kn passive). If the cam will fail in a passive position, an <b>X</b> will be used (see the black Totem). If the active and passive ratings are the same, it'll be a single value (BD C4 .3).
       </p>
       <section id="strength"></section>
     </section>
